@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teaching — TITO Rytrace</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="nav-inner">
+    <nav class="pages">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="teaching.html" class="active">Teaching</a>
+      <a href="activities.html">Other activities</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section>
+    <h2 class="section-title">Teaching activities</h2>
+    <div class="card">
+      <span class="when placeholder">[Année / semestre]</span>
+      <h4 class="placeholder">[Intitulé du cours ou des TD]</h4>
+      <p class="placeholder">
+        [Public (licence/master), volume horaire, contenu — ex. statistique descriptive,
+        probabilités, R pour la data science…]
+      </p>
+    </div>
+    <p class="placeholder">Ajoutez une carte par cours ou TD encadré.</p>
+  </section>
+
+  <section>
+    <h2 class="section-title">Vulgarisation</h2>
+    <p>
+      Je publie sur LinkedIn une série de contenus pédagogiques rendant les mathématiques et la
+      data science accessibles à un large public — voir la page
+      <a href="activities.html">Other activities</a>.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">© <span id="year"></span> TITO Rytrace</div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

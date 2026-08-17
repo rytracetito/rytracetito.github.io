@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TITO Rytrace</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="nav-inner">
+    <nav class="pages">
+      <a href="index.html" class="active">Home</a>
+      <a href="research.html">Research</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="activities.html">Other activities</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="profile-card">
+    <div class="profile-text">
+      <h1>TITO Rytrace</h1>
+      <p>PhD Candidate in Applied Mathematics</p>
+      <p>Laboratoire de Mathématiques et de leurs Applications de Pau (LMAP)</p>
+      <p><a href="http://ipra.univ-pau.fr/" target="_blank" rel="noopener">Institut Pluridisciplinaire de Recherche Appliquée (IPRA)</a></p>
+      <p>Université de Pau et des Pays de l'Adour (UPPA)</p>
+    </div>
+    <div class="avatar" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#1a1a1a" stroke-width="1.5">
+        <circle cx="12" cy="8" r="4"></circle>
+        <path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7"></path>
+      </svg>
+    </div>
+  </div>
+
+  <section>
+    <h2 class="section-title">About Me</h2>
+    <p>
+      Je suis doctorant en mathématiques appliquées au sein du LMAP, Laboratoire de Mathématiques
+      et de leurs Applications de Pau, rattaché à l'Université de Pau et des Pays de l'Adour (UPPA).
+      Mes travaux portent sur la modélisation stochastique de la dégradation — processus gamma et
+      de Wiener — et sur les tests d'adéquation associés.
+    </p>
+    <p><a class="placeholder" href="#">Accédez à mes contenus pédagogiques sur LinkedIn</a></p>
+  </section>
+
+  <section>
+    <h2 class="section-title">Research Interests</h2>
+    <ul class="plain">
+      <li>Processus gamma</li>
+      <li>Processus de Wiener</li>
+      <li>Tests d'adéquation (goodness-of-fit)</li>
+      <li>Fiabilité et modélisation de la dégradation</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-grid">
+      <div class="row"><span class="label">Address :</span> Avenue de l'Université, BP 576, 64012 Pau Cedex, France — Bâtiment IPRA</div>
+      <div class="row"><span class="label">Office :</span> A67</div>
+      <div class="row"><span class="label">E-mail :</span> rytro@gmail.com</div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">© <span id="year"></span> TITO Rytrace</div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
