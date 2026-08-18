@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Other activities — TITO Amedée Rytrace</title>
+<title data-fr="Autres activités — TITO Amedée Rytrace" data-en="Other activities — TITO Amedée Rytrace">Autres activités — TITO Amedée Rytrace</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%231e4f8c'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='26' fill='white' text-anchor='middle'%3ETR%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,49 +12,54 @@
 <header class="site">
   <div class="nav-inner">
     <nav class="pages">
-      <a href="index.html">Home</a>
-      <a href="research.html">Research</a>
-      <a href="teaching.html">Teaching</a>
-      <a href="activities.html" class="active">Other activities</a>
+      <a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a>
+      <a href="research.html" data-fr="Recherche" data-en="Research">Recherche</a>
+      <a href="teaching.html" data-fr="Enseignement" data-en="Teaching">Enseignement</a>
+      <a href="activities.html" class="active" data-fr="Autres activités" data-en="Other activities">Autres activités</a>
     </nav>
+    <div class="lang-toggle">
+      <button data-lang="fr" onclick="setLang('fr')">FR</button>
+      <button data-lang="en" onclick="setLang('en')">EN</button>
+    </div>
   </div>
 </header>
 
 <main class="wrap">
 
   <section>
-    <h2 class="section-title">Vulgarisation scientifique</h2>
-    <p>
+    <h2 class="section-title" data-fr="Vulgarisation scientifique" data-en="Science outreach">Vulgarisation scientifique</h2>
+    <p data-fr="Série de contenus pédagogiques sur LinkedIn, pour rendre les mathématiques et la data science accessibles à un public non technique."
+       data-en="A series of educational posts on LinkedIn, making mathematics and data science accessible to a non-technical audience.">
       Série de contenus pédagogiques sur LinkedIn, pour rendre les mathématiques et la data science
       accessibles à un public non technique.
     </p>
     <ul class="plain">
       <li>Gauss</li>
-      <li>Modèles de volatilité (GARCH / EGARCH / EWMA)</li>
-      <li>Valeurs extrêmes (EVT)</li>
+      <li data-fr="Modèles de volatilité (GARCH / EGARCH / EWMA)" data-en="Volatility models (GARCH / EGARCH / EWMA)">Modèles de volatilité (GARCH / EGARCH / EWMA)</li>
+      <li data-fr="Valeurs extrêmes (EVT)" data-en="Extreme value theory (EVT)">Valeurs extrêmes (EVT)</li>
       <li>ACP</li>
-      <li>Loi Gamma</li>
-      <li>Loi géométrique</li>
-      <li>Régression linéaire</li>
+      <li data-fr="Loi Gamma" data-en="Gamma distribution">Loi Gamma</li>
+      <li data-fr="Loi géométrique" data-en="Geometric distribution">Loi géométrique</li>
+      <li data-fr="Régression linéaire" data-en="Linear regression">Régression linéaire</li>
       <li>Julia</li>
-      <li>Figures de statisticiens</li>
+      <li data-fr="Figures de statisticiens" data-en="Portraits of statisticians">Figures de statisticiens</li>
     </ul>
-    <p><a href="https://www.linkedin.com/in/tito-rytrace" target="_blank" rel="noopener">Voir la série complète sur LinkedIn</a></p>
+    <p><a href="https://www.linkedin.com/in/tito-rytrace" target="_blank" rel="noopener" data-fr="Voir la série complète sur LinkedIn" data-en="See the full series on LinkedIn">Voir la série complète sur LinkedIn</a></p>
   </section>
 
   <section>
-    <h2 class="section-title">Autres engagements</h2>
+    <h2 class="section-title" data-fr="Autres engagements" data-en="Other involvements">Autres engagements</h2>
     <ul class="plain">
-      <li class="placeholder">[Associations, mentorat, organisation d'événements…]</li>
+      <li class="placeholder" data-fr="[Associations, mentorat, organisation d'événements…]" data-en="[Associations, mentoring, event organizing…]">[Associations, mentorat, organisation d'événements…]</li>
     </ul>
   </section>
 
 </main>
 
 <footer>
-  <div class="wrap">© <span id="year"></span> TITO Rytrace</div>
+  <div class="wrap">© <span id="year"></span> TITO Amedée Rytrace</div>
 </footer>
 
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="script.js"></script>
 </body>
 </html>

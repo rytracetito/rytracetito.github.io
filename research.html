@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Research — TITO Amedée Rytrace</title>
+<title data-fr="Recherche — TITO Amedée Rytrace" data-en="Research — TITO Amedée Rytrace">Recherche — TITO Amedée Rytrace</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%231e4f8c'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='26' fill='white' text-anchor='middle'%3ETR%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,62 +12,68 @@
 <header class="site">
   <div class="nav-inner">
     <nav class="pages">
-      <a href="index.html">Home</a>
-      <a href="research.html" class="active">Research</a>
-      <a href="teaching.html">Teaching</a>
-      <a href="activities.html">Other activities</a>
+      <a href="index.html" data-fr="Accueil" data-en="Home">Accueil</a>
+      <a href="research.html" class="active" data-fr="Recherche" data-en="Research">Recherche</a>
+      <a href="teaching.html" data-fr="Enseignement" data-en="Teaching">Enseignement</a>
+      <a href="activities.html" data-fr="Autres activités" data-en="Other activities">Autres activités</a>
     </nav>
+    <div class="lang-toggle">
+      <button data-lang="fr" onclick="setLang('fr')">FR</button>
+      <button data-lang="en" onclick="setLang('en')">EN</button>
+    </div>
   </div>
 </header>
 
 <main class="wrap">
 
   <section>
-    <h2 class="section-title">Current — Master's internship</h2>
+    <h2 class="section-title" data-fr="En cours — stage de Master" data-en="Current — Master's internship">En cours — stage de Master</h2>
     <div class="card">
-      <span class="when">2025 – 2026 · LMAP, Pau</span>
-      <h4>Tests d'adéquation pour les processus gamma et de Wiener homogènes</h4>
-      <p>
+      <span class="when" data-fr="2025 – 2026 · LMAP, Pau" data-en="2025 – 2026 · LMAP, Pau">2025 – 2026 · LMAP, Pau</span>
+      <h4 data-fr="Tests d'adéquation pour les processus gamma et de Wiener homogènes" data-en="Goodness-of-fit tests for homogeneous gamma and Wiener processes">Tests d'adéquation pour les processus gamma et de Wiener homogènes</h4>
+      <p data-fr="Stage de recherche encadré par Christian Paroissin (UPPA/LMAP) et Olivier Gaudoin (UGA/LJK), référente pédagogique Fabienne Comte. Développement de la méthode « Ext Bridge » : construction d'une grille fine par PGCD des instants d'observation, simulation séquentielle du pont gamma par décomposition Beta, et intégration de tests d'adéquation plus puissants (HME, VGE, Betsch-Ebner) que le test de Kolmogorov-Smirnov utilisé dans la littérature antérieure."
+         data-en="Research internship supervised by Christian Paroissin (UPPA/LMAP) and Olivier Gaudoin (UGA/LJK), teaching referent Fabienne Comte. Development of the 'Ext Bridge' method: fine grid construction via the GCD of observation times, sequential gamma-bridge simulation through Beta decomposition, and the integration of more powerful goodness-of-fit tests (HME, VGE, Betsch-Ebner) than the Kolmogorov-Smirnov test used in earlier work.">
         Stage de recherche encadré par Christian Paroissin (UPPA/LMAP) et Olivier Gaudoin (UGA/LJK),
-         Développement de la méthode « Ext Bridge » : construction
+        référente pédagogique Fabienne Comte. Développement de la méthode « Ext Bridge » : construction
         d'une grille fine par PGCD des instants d'observation, simulation séquentielle du pont gamma par
         décomposition Beta, et intégration de tests d'adéquation plus puissants (HME, VGE, Betsch-Ebner)
         que le test de Kolmogorov-Smirnov utilisé dans la littérature antérieure.
       </p>
-      <p>
+      <p data-fr="Application à des données réelles de dégradation de lasers GaAs (15 unités, relevés toutes les 250h sur 0–4000h). Rapport et soutenance prévus en septembre 2026."
+         data-en="Applied to real GaAs laser degradation data (15 units, measurements every 250h over 0–4000h). Report and defense scheduled for September 2026.">
         Application à des données réelles de dégradation de lasers GaAs (15 unités, relevés toutes les
-        250h sur 0–4000h).
+        250h sur 0–4000h). Rapport et soutenance prévus en septembre 2026.
       </p>
     </div>
   </section>
 
   <section>
-    <h2 class="section-title">Upcoming — PhD project</h2>
+    <h2 class="section-title" data-fr="À venir — projet de thèse" data-en="Upcoming — PhD project">À venir — projet de thèse</h2>
     <div class="card">
-      <span class="when">À partir de septembre 2026 · ED SEA 211, Pau</span>
+      <span class="when" data-fr="À partir de septembre 2026 · ED SEA 211, Pau" data-en="From September 2026 · ED SEA 211, Pau">À partir de septembre 2026 · ED SEA 211, Pau</span>
       <h4>Projet ANR PADAWAN</h4>
-      <p>
+      <p data-fr="Thèse en cotutelle UPPA/UGA, sous la direction de Christian Paroissin et Olivier Gaudoin, avec Franck Corset comme co-encadrant. Poursuite des travaux sur la modélisation de la dégradation et les tests d'adéquation associés."
+         data-en="Joint PhD (UPPA/UGA), supervised by Christian Paroissin and Olivier Gaudoin, with Franck Corset as co-supervisor. Continuation of the work on degradation modeling and the associated goodness-of-fit tests.">
         Thèse en cotutelle UPPA/UGA, sous la direction de Christian Paroissin et Olivier Gaudoin, avec
-        Franck Corset comme co-encadrant. Poursuite des travaux sur Tests d’adéquation aux processus de dégradation 
-        avec ou sans maintenance imparfaite.
+        Franck Corset comme co-encadrant. Poursuite des travaux sur la modélisation de la dégradation et
+        les tests d'adéquation associés.
       </p>
     </div>
   </section>
 
   <section>
-    <h2 class="section-title">Academic background</h2>
+    <h2 class="section-title" data-fr="Parcours académique" data-en="Academic background">Parcours académique</h2>
     <ul class="plain">
-      <li>Master , Ingénierie Mathématique et Biostatistique — Université Paris Cité</li>
-      <li>Master en Statistique et Probabilités — IMSP, Bénin</li>
-      <li>Licence en Mathématique - Informatique — UAC, Bénin</li>
+      <li data-fr="Master 2, Ingénierie Mathématique et Biostatistique — Université Paris Cité" data-en="Master's degree, Mathematical Engineering and Biostatistics — Université Paris Cité">Master 2, Ingénierie Mathématique et Biostatistique — Université Paris Cité</li>
+      <li data-fr="Master en Statistique et Probabilités — IMSP, Bénin" data-en="Master's degree in Statistics and Probability — IMSP, Benin">Master en Statistique et Probabilités — IMSP, Bénin</li>
     </ul>
   </section>
 
   <section>
-    <h2 class="section-title">Presentations</h2>
+    <h2 class="section-title" data-fr="Présentations" data-en="Presentations">Présentations</h2>
     <ul class="plain">
-      <li class="placeholder">[Présentation de conférence — juin 2026, tests d'adéquation HGP/HWP]</li>
-      <li class="placeholder">[Ajoutez vos communications, posters, séminaires…]</li>
+      <li class="placeholder" data-fr="[Présentation de conférence — juin 2026, tests d'adéquation HGP/HWP]" data-en="[Conference presentation — June 2026, HGP/HWP goodness-of-fit tests]">[Présentation de conférence — juin 2026, tests d'adéquation HGP/HWP]</li>
+      <li class="placeholder" data-fr="[Ajoutez vos communications, posters, séminaires…]" data-en="[Add your talks, posters, seminars…]">[Ajoutez vos communications, posters, séminaires…]</li>
     </ul>
   </section>
 
@@ -76,6 +83,6 @@
   <div class="wrap">© <span id="year"></span> TITO Amedée Rytrace</div>
 </footer>
 
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="script.js"></script>
 </body>
 </html>

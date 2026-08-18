@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="TITO Amedée Rytrace — Doctorant en mathématiques appliquées, LMAP, Université de Pau et des Pays de l'Adour.">
 <title>TITO Amedée Rytrace</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%231e4f8c'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='26' fill='white' text-anchor='middle'%3ETR%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,11 +13,15 @@
 <header class="site">
   <div class="nav-inner">
     <nav class="pages">
-      <a href="index.html" class="active">Home</a>
-      <a href="research.html">Research</a>
-      <a href="teaching.html">Teaching</a>
-      <a href="activities.html">Other activities</a>
+      <a href="index.html" class="active" data-fr="Accueil" data-en="Home">Accueil</a>
+      <a href="research.html" data-fr="Recherche" data-en="Research">Recherche</a>
+      <a href="teaching.html" data-fr="Enseignement" data-en="Teaching">Enseignement</a>
+      <a href="activities.html" data-fr="Autres activités" data-en="Other activities">Autres activités</a>
     </nav>
+    <div class="lang-toggle">
+      <button data-lang="fr" onclick="setLang('fr')">FR</button>
+      <button data-lang="en" onclick="setLang('en')">EN</button>
+    </div>
   </div>
 </header>
 
@@ -23,8 +29,9 @@
 
   <div class="profile-card">
     <div class="profile-text">
-      <h1>TITO Rytrace</h1>
-      <p>PhD Candidate in Applied Mathematics</p>
+      <p class="eyebrow" data-fr="Mathématiques appliquées" data-en="Applied Mathematics">Mathématiques appliquées</p>
+      <h1>TITO Amedée Rytrace</h1>
+      <p data-fr="Doctorant en mathématiques appliquées" data-en="PhD Candidate in Applied Mathematics">Doctorant en mathématiques appliquées</p>
       <p>Laboratoire de Mathématiques et de leurs Applications de Pau (LMAP)</p>
       <p><a href="http://ipra.univ-pau.fr/" target="_blank" rel="noopener">Institut Pluridisciplinaire de Recherche Appliquée (IPRA)</a></p>
       <p>Université de Pau et des Pays de l'Adour (UPPA)</p>
@@ -37,42 +44,74 @@
     </div>
   </div>
 
+  <div class="quick-links">
+    <a href="https://www.linkedin.com/in/tito-rytrace" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="mailto:rytro@gmail.com">E-mail</a>
+    <a href="cv.pdf" data-fr="Télécharger le CV (PDF)" data-en="Download CV (PDF)">Télécharger le CV (PDF)</a>
+  </div>
+
   <section>
-    <h2 class="section-title">About Me</h2>
-    <p>
+    <h2 class="section-title" data-fr="À propos" data-en="About me">À propos</h2>
+    <p data-fr="Je suis doctorant en mathématiques appliquées au sein du LMAP, Laboratoire de Mathématiques et de leurs Applications de Pau, rattaché à l'Université de Pau et des Pays de l'Adour (UPPA). Mes travaux portent sur la modélisation stochastique de la dégradation — processus gamma et de Wiener — et sur les tests d'adéquation associés."
+       data-en="I am a PhD candidate in applied mathematics at LMAP, the Laboratory of Mathematics and its Applications of Pau, affiliated with the University of Pau and the Adour Region (UPPA). My work focuses on stochastic degradation modeling — gamma and Wiener processes — and the associated goodness-of-fit tests.">
       Je suis doctorant en mathématiques appliquées au sein du LMAP, Laboratoire de Mathématiques
       et de leurs Applications de Pau, rattaché à l'Université de Pau et des Pays de l'Adour (UPPA).
-      Mes travaux portent sur Tests d’adéquation aux processus de dégradation 
-      avec ou sans maintenance imparfaite.
+      Mes travaux portent sur la modélisation stochastique de la dégradation — processus gamma et
+      de Wiener — et sur les tests d'adéquation associés.
     </p>
-    <p><a href="https://www.linkedin.com/in/tito-rytrace" target="_blank" rel="noopener">Accédez à mes contenus pédagogiques sur LinkedIn</a></p>
+    <p><a href="https://www.linkedin.com/in/tito-rytrace" target="_blank" rel="noopener" data-fr="Accédez à mes contenus pédagogiques sur LinkedIn" data-en="Read my educational posts on LinkedIn">Accédez à mes contenus pédagogiques sur LinkedIn</a></p>
   </section>
 
   <section>
-    <h2 class="section-title">Research Interests</h2>
-    <ul class="plain">
-      <li>Processus gamma</li>
-      <li>Processus de Wiener</li>
-      <li>Tests d'adéquation (goodness-of-fit)</li>
-      <li>Fiabilité et modélisation de la dégradation</li>
-    </ul>
+    <h2 class="section-title" data-fr="Centres d'intérêt de recherche" data-en="Research Interests">Centres d'intérêt de recherche</h2>
+    <div class="tag-row">
+      <span class="tag" data-fr="Processus gamma" data-en="Gamma processes">Processus gamma</span>
+      <span class="tag" data-fr="Processus de Wiener" data-en="Wiener processes">Processus de Wiener</span>
+      <span class="tag" data-fr="Tests d'adéquation" data-en="Goodness-of-fit tests">Tests d'adéquation</span>
+      <span class="tag" data-fr="Fiabilité" data-en="Reliability">Fiabilité</span>
+      <span class="tag" data-fr="Ponts stochastiques" data-en="Stochastic bridges">Ponts stochastiques</span>
+    </div>
+  </section>
+
+  <section class="two-col">
+    <div>
+      <h2 class="section-title" data-fr="Compétences" data-en="Skills">Compétences</h2>
+      <ul class="plain">
+        <li data-fr="R (simulation, statistique, modélisation)" data-en="R (simulation, statistics, modeling)">R (simulation, statistique, modélisation)</li>
+        <li>Python</li>
+        <li>Julia</li>
+        <li>LaTeX / Beamer</li>
+        <li>Git</li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="section-title" data-fr="Langues" data-en="Languages">Langues</h2>
+      <div class="lang-row">
+        <span data-fr="Français" data-en="French">Français</span>
+        <span class="level" data-fr="langue maternelle" data-en="native">langue maternelle</span>
+      </div>
+      <div class="lang-row">
+        <span data-fr="Anglais" data-en="English">Anglais</span>
+        <span class="level placeholder" data-fr="[niveau]" data-en="[level]">[niveau]</span>
+      </div>
+    </div>
   </section>
 
   <section>
     <h2 class="section-title">Contact</h2>
     <div class="contact-grid">
-      <div class="row"><span class="label">Address :</span> Avenue de l'Université, BP 576, 64012 Pau Cedex, France — Bâtiment IPRA</div>
-      <div class="row"><span class="label">Office :</span> A67</div>
-      <div class="row"><span class="label">E-mail :</span> tito.amedee-rytrace@univ-pau.fr </div>
+      <div class="row"><span class="label" data-fr="Adresse :" data-en="Address:">Adresse :</span> Avenue de l'Université, BP 576, 64012 Pau Cedex, France — <span data-fr="Bâtiment IPRA" data-en="IPRA building">Bâtiment IPRA</span></div>
+      <div class="row"><span class="label" data-fr="Bureau :" data-en="Office:">Bureau :</span> A67</div>
+      <div class="row"><span class="label">E-mail :</span> rytro@gmail.com</div>
     </div>
   </section>
 
 </main>
 
 <footer>
-  <div class="wrap">© <span id="year"></span> TITO Rytrace</div>
+  <div class="wrap">© <span id="year"></span> TITO Amedée Rytrace</div>
 </footer>
 
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="script.js"></script>
 </body>
 </html>
