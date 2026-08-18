@@ -169,22 +169,37 @@ p.lede{ font-size: 16px; color: var(--ink-soft); max-width: 52ch; margin: 0 0 30
 }
 .avatar-circle svg{ width: 46%; height: 46%; opacity: .3; }
 
+.ring-dot{
+  position: absolute; inset: 0; width: 12px; height: 12px; margin: auto;
+  border-radius: 50%; box-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+  offset-path: circle(50% at 50% 50%);
+  animation: ring-travel 5s linear infinite;
+  z-index: 6;
+}
+@keyframes ring-travel{
+  0%{ offset-distance: 0%; background: var(--accent1); color: var(--accent1); }
+  33%{ offset-distance: 33%; background: var(--accent3); color: var(--accent3); }
+  66%{ offset-distance: 66%; background: var(--accent2); color: var(--accent2); }
+  100%{ offset-distance: 100%; background: var(--accent1); color: var(--accent1); }
+}
+
 .orbit-badge{
   position: absolute; width: 78px; height: 78px; border-radius: 50%;
   transform: translate(-50%, -50%);
   display: flex; align-items: center; justify-content: center;
   font-family: var(--font-mono); font-size: 15px; font-weight: 700;
   background: #131722; border: 1px solid rgba(255,255,255,.08);
-  box-shadow: 0 10px 26px rgba(0,0,0,.4), 0 0 0 1px rgba(255,255,255,.04) inset;
+  box-shadow: 0 10px 26px rgba(0,0,0,.4), 0 0 16px color-mix(in srgb, var(--glow) 45%, transparent), 0 0 0 1px color-mix(in srgb, var(--glow) 30%, transparent) inset;
   animation: float 6s ease-in-out infinite;
   z-index: 5;
 }
-.orbit-badge.b1{ top: -0.7%; left: 40.95%; animation-delay: 0s; }
-.orbit-badge.b2{ top: 20.1%; left: 77.05%; animation-delay: -1s; }
-.orbit-badge.b3{ top: 61.8%; left: 77.05%; animation-delay: -2s; }
-.orbit-badge.b4{ top: 82.6%; left: 40.95%; animation-delay: -3s; }
-.orbit-badge.b5{ top: 61.8%; left: 4.86%; animation-delay: -4s; }
-.orbit-badge.b6{ top: 20.1%; left: 4.86%; animation-delay: -5s; }
+.orbit-badge.b1{ top: 8.33%; left: 50%; --glow: #ffd85c; animation-delay: 0s; }
+.orbit-badge.b2{ top: 24.02%; left: 82.57%; --glow: #5b9bff; animation-delay: -0.8s; }
+.orbit-badge.b3{ top: 59.26%; left: 90.62%; --glow: #a78bfa; animation-delay: -1.6s; }
+.orbit-badge.b4{ top: 87.55%; left: 68.07%; --glow: #ff9a5c; animation-delay: -2.4s; }
+.orbit-badge.b5{ top: 87.55%; left: 31.93%; --glow: #22d3ee; animation-delay: -3.2s; }
+.orbit-badge.b6{ top: 59.26%; left: 9.38%; --glow: #f4f4f5; animation-delay: -4s; }
+.orbit-badge.b7{ top: 24.02%; left: 17.43%; --glow: #ec4899; animation-delay: -4.8s; }
 .orbit-badge svg{ display: block; }
 @keyframes float{
   0%,100%{ transform: translate(-50%, -50%) translateY(0); }
