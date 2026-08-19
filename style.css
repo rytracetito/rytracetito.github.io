@@ -133,7 +133,16 @@ h2.section-title{
   color: var(--ink-soft); border: 1px solid var(--rule); background: var(--card);
   padding: 7px 14px; border-radius: 20px; margin-bottom: 26px;
 }
-.badge .dot{ width: 7px; height: 7px; border-radius: 50%; background: #34d399; }
+.badge .dot{
+  width: 7px; height: 7px; border-radius: 50%; background: #34d399;
+  box-shadow: 0 0 0 0 rgba(52,211,153,.6);
+  animation: dot-pulse 1.8s ease-in-out infinite;
+}
+@keyframes dot-pulse{
+  0%{ box-shadow: 0 0 0 0 rgba(52,211,153,.55); opacity: 1; }
+  70%{ box-shadow: 0 0 0 6px rgba(52,211,153,0); opacity: .55; }
+  100%{ box-shadow: 0 0 0 0 rgba(52,211,153,0); opacity: 1; }
+}
 
 h1.name{
   font-family: var(--font-display); font-weight: 700; font-size: clamp(38px, 5.2vw, 62px);
@@ -297,8 +306,12 @@ p.lede{ font-size: 16px; color: var(--ink-soft); max-width: 52ch; margin: 0 0 30
   content:''; position: absolute; left: -30px; top: 4px; width: 11px; height: 11px; border-radius: 50%;
   background: var(--bg); border: 2px solid var(--accent1);
 }
+.tl-item.current::before{
+  background: var(--accent1); border-color: var(--accent1);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--accent1) 22%, transparent), 0 0 16px color-mix(in srgb, var(--accent1) 75%, transparent);
+}
 .tl-item .when{ font-family: var(--font-mono); font-size: 12px; color: var(--accent2); }
-.tl-item h4{ font-family: var(--font-display); font-weight: 600; font-size: 16.5px; margin: 4px 0 6px; }
+.tl-item h3, .tl-item h4{ font-family: var(--font-display); font-weight: 600; font-size: 16.5px; margin: 4px 0 6px; color: var(--ink); }
 .tl-item p{ font-size: 14.5px; color: var(--ink-soft); margin: 0; max-width: 60ch; }
 
 /* ---------- contact ---------- */
