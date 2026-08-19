@@ -55,6 +55,54 @@ function setTheme(theme) {
 
 
 /* =========================================
+   SCROLL SPY — surligne la section active
+   dans le menu pendant le défilement
+========================================= */
+
+function initScrollSpy() {
+
+  var sections = document.querySelectorAll('main section[id]');
+  var navLinks = document.querySelectorAll('nav.seclinks a');
+
+  if (!sections.length || !('IntersectionObserver' in window)) {
+    return;
+  }
+
+  var observer = new IntersectionObserver(
+    function(entries) {
+
+      entries.forEach(function(entry) {
+
+        if (entry.isIntersecting) {
+
+          navLinks.forEach(function(link) {
+
+            var isActive =
+              link.getAttribute('href') === '#' + entry.target.id;
+
+            link.classList.toggle('active', isActive);
+
+          });
+
+        }
+
+      });
+
+    },
+    {
+      rootMargin: '-40% 0px -50% 0px',
+      threshold: 0
+    }
+  );
+
+  sections.forEach(function(section) {
+    observer.observe(section);
+  });
+
+}
+
+
+/* =========================================
    INITIALISATION
 ========================================= */
 
@@ -111,5 +159,10 @@ document.addEventListener('DOMContentLoaded', function() {
     year.textContent =
       new Date().getFullYear();
   }
+
+
+  /* ---------- Scroll spy ---------- */
+
+  initScrollSpy();
 
 });
