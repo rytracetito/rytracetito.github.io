@@ -4,764 +4,844 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>TITO Amedée Rytrace — Statistique, processus stochastiques & fiabilité</title>
   <meta name="description"
-        content="TITO Amedée Rytrace — Mathématiques appliquées, statistique, processus stochastiques et fiabilité.">
+        content="TITO Amedée Rytrace — doctorant au LMAP (Université de Pau et des Pays de l'Adour) : tests d'adéquation pour les processus de dégradation Gamma et Wiener, avec ou sans maintenance imparfaite.">
   <meta name="author" content="TITO Amedée Rytrace">
-  <meta name="theme-color" content="#0b1020">
+  <meta name="theme-color" content="#0a0d14">
+  <link rel="canonical" href="https://rytracetito.github.io/">
 
-  <title>TITO Amedée Rytrace — Mathématiques appliquées & fiabilité</title>
+  <!-- Aperçu lors du partage (LinkedIn, WhatsApp, X…) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://rytracetito.github.io/">
+  <meta property="og:title" content="TITO Amedée Rytrace — Statistique & fiabilité">
+  <meta property="og:description" content="Processus de dégradation, tests d'adéquation et maintenance imparfaite. Recherche, projets et simulateur interactif.">
+  <meta property="og:image" content="https://rytracetito.github.io/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
 
-  <link rel="icon"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='32' fill='%238b5cf6'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='24' fill='white' text-anchor='middle'%3ETR%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
+  <!-- Thème et langue appliqués avant l'affichage (évite le flash) -->
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      try {
+        var t = localStorage.getItem('site-theme');
+        if (t) d.setAttribute('data-theme', t);
+        var l = localStorage.getItem('site-lang');
+        if (l) d.lang = l;
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
   <link rel="stylesheet" href="style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "TITO Amedée Rytrace",
+    "url": "https://rytracetito.github.io/",
+    "image": "https://rytracetito.github.io/assets/photo.webp",
+    "jobTitle": "Doctorant en mathématiques appliquées",
+    "affiliation": {
+      "@type": "ResearchOrganization",
+      "name": "Laboratoire de Mathématiques et de leurs Applications de Pau (LMAP)",
+      "parentOrganization": {"@type": "CollegeOrUniversity", "name": "Université de Pau et des Pays de l'Adour"}
+    },
+    "email": "mailto:artito@univ-pau.fr",
+    "knowsAbout": ["Processus stochastiques", "Processus Gamma", "Processus de Wiener", "Tests d'adéquation", "Fiabilité", "Maintenance imparfaite", "Statistique"],
+    "alumniOf": [
+      {"@type": "CollegeOrUniversity", "name": "Université Paris Cité"},
+      {"@type": "CollegeOrUniversity", "name": "Institut de Mathématiques et de Sciences Physiques (IMSP)"}
+    ],
+    "sameAs": ["https://www.linkedin.com/in/tito-rytrace", "https://github.com/rytracetito"]
+  }
+  </script>
 </head>
 
 <body>
 
-  <div class="bg-glow" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span><span class="g4"></span></div>
+  <a class="skip-link" href="#main" data-en="Skip to content">Aller au contenu</a>
+  <div class="progress" aria-hidden="true"><span></span></div>
+  <div class="bg-glow" aria-hidden="true"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
 
   <!-- =========================
-       NAVIGATION
+       BARRE LATÉRALE
   ========================== -->
   <aside class="rail" aria-label="Raccourcis">
     <div class="rail-top">
-      <a href="#hero" aria-label="Accueil">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-          <path d="M3 11l9-7 9 7"/>
-          <path d="M5 10v9a1 1 0 001 1h4v-6h4v6h4a1 1 0 001-1v-9"/>
-        </svg>
+      <a href="#hero" aria-label="Accueil" data-tip="Accueil" data-en-tip="Home">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v9a1 1 0 001 1h4v-6h4v6h4a1 1 0 001-1v-9"/></svg>
       </a>
-
       <div class="divider"></div>
-
-      <!-- Remplacer par ton vrai GitHub si tu souhaites l'afficher -->
-      <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-2.1c-3.2.7-3.88-1.35-3.88-1.35-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 015.8 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.39-5.25 5.67.42.36.78 1.08.78 2.18v3.23c0 .3.21.66.79.55C20.21 21.39 23.5 17.08 23.5 12c0-6.35-5.15-11.5-11.5-11.5z"/>
-        </svg>
+      <a href="https://github.com/rytracetito" target="_blank" rel="noopener noreferrer" aria-label="GitHub" data-tip="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-2.1c-3.2.7-3.88-1.35-3.88-1.35-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 015.8 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.39-5.25 5.67.42.36.78 1.08.78 2.18v3.23c0 .3.21.66.79.55C20.21 21.39 23.5 17.08 23.5 12c0-6.35-5.15-11.5-11.5-11.5z"/></svg>
       </a>
-
-      <a href="https://www.linkedin.com/in/tito-rytrace"
-         target="_blank"
-         rel="noopener noreferrer"
-         aria-label="LinkedIn">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM.5 8.98h4.96V23H.5V8.98zM8.7 8.98h4.76v1.92h.07c.66-1.25 2.28-2.57 4.7-2.57 5.03 0 5.96 3.31 5.96 7.62V23h-4.96v-6.29c0-1.5-.03-3.43-2.09-3.43-2.09 0-2.41 1.63-2.41 3.32V23H8.7V8.98z"/>
-        </svg>
+      <a href="https://www.linkedin.com/in/tito-rytrace" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" data-tip="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM.5 8.98h4.96V23H.5V8.98zM8.7 8.98h4.76v1.92h.07c.66-1.25 2.28-2.57 4.7-2.57 5.03 0 5.96 3.31 5.96 7.62V23h-4.96v-6.29c0-1.5-.03-3.43-2.09-3.43-2.09 0-2.41 1.63-2.41 3.32V23H8.7V8.98z"/></svg>
       </a>
-
-      <a href="mailto:artito@univ-pau.fr" aria-label="E-mail">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-          <path d="M3 5h18v14H3z"/>
-          <path d="M3 6l9 7 9-7"/>
-        </svg>
+      <a href="mailto:artito@univ-pau.fr" aria-label="E-mail" data-tip="E-mail">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 5h18v14H3z"/><path d="M3 6l9 7 9-7"/></svg>
       </a>
     </div>
-
     <div class="rail-bottom">
-      <a href="cv.pdf" aria-label="Télécharger le CV">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-          <path d="M12 3v12"/>
-          <path d="M6 11l6 6 6-6"/>
-          <path d="M4 21h16"/>
-        </svg>
+      <a href="cv.pdf" target="_blank" rel="noopener" aria-label="CV (PDF)" data-tip="CV (PDF)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3v12"/><path d="M6 11l6 6 6-6"/><path d="M4 21h16"/></svg>
       </a>
     </div>
   </aside>
 
+  <!-- =========================
+       NAVIGATION
+  ========================== -->
   <header class="topnav">
     <div class="nav-inner">
       <a class="brand" href="#hero">T. RYTRACE</a>
 
-      <nav class="seclinks" aria-label="Navigation principale">
-        <a href="#about" data-fr="À propos" data-en="About">À propos</a>
-        <a href="#experience" data-fr="Expérience" data-en="Experience">Expérience</a>
-        <a href="#recherche" data-fr="Recherche" data-en="Research">Recherche</a>
-        <a href="#projets" data-fr="Projets" data-en="Projects">Projets</a>
-        <a href="#formation" data-fr="Formation" data-en="Education">Formation</a>
-        <a href="#competences" data-fr="Compétences" data-en="Skills">Compétences</a>
-        <a href="#contact" data-fr="Contact" data-en="Contact">Contact</a>
+      <nav class="seclinks" id="menu" aria-label="Navigation principale">
+        <a href="#about" data-en="About">À propos</a>
+        <a href="#parcours" data-en="Background">Parcours</a>
+        <a href="#recherche" data-en="Research">Recherche</a>
+        <a href="#labo" data-en="Lab">Labo</a>
+        <a href="#projets" data-en="Projects">Projets</a>
+        <a href="#competences" data-en="Skills">Compétences</a>
+        <a href="#contact" data-en="Contact">Contact</a>
+        <div class="menu-extra">
+          <a href="https://github.com/rytracetito" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://www.linkedin.com/in/tito-rytrace" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="cv.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+        </div>
       </nav>
 
       <div class="controls">
-        <div class="lang-toggle" aria-label="Choisir la langue">
-          <button data-lang="fr" onclick="setLang('fr')">FR</button>
-          <button data-lang="en" onclick="setLang('en')">EN</button>
+        <div class="lang-toggle" role="group" aria-label="Langue / Language">
+          <button type="button" data-lang="fr" aria-label="Français">FR</button>
+          <button type="button" data-lang="en" aria-label="English">EN</button>
         </div>
-
-        <button class="theme-toggle" aria-label="Changer de thème">
-          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-            <circle cx="12" cy="12" r="4"/>
-            <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
-          </svg>
-          <svg class="moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/>
-          </svg>
+        <button type="button" class="icon-btn theme-toggle" aria-label="Changer de thème" data-en-aria="Toggle theme">
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg>
+        </button>
+        <button type="button" class="icon-btn burger" aria-label="Ouvrir le menu" data-en-aria="Open menu" aria-expanded="false" aria-controls="menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path class="l1" d="M4 7h16"/><path class="l2" d="M4 12h16"/><path class="l3" d="M4 17h16"/></svg>
         </button>
       </div>
     </div>
   </header>
 
-  <main>
+  <main id="main">
 
     <!-- =========================
          HERO
     ========================== -->
-    <section id="hero" class="hero wrap">
-      <div>
-        <span class="badge">
-          <span class="dot"></span>
-          <span data-fr="Mathématiques appliquées · Statistique · Fiabilité"
-                data-en="Applied Mathematics · Statistics · Reliability">
-            Mathématiques appliquées · Statistique · Fiabilité
+    <section id="hero" class="hero">
+      <canvas class="hero-paths" aria-hidden="true"></canvas>
+      <div class="wrap hero-grid">
+        <div class="hero-text">
+          <span class="badge">
+            <span class="dot"></span>
+            <span data-en="PhD candidate · LMAP, University of Pau">Doctorant · LMAP, Université de Pau</span>
           </span>
-        </span>
 
-        <h1 class="name">TITO Amedée<br>Rytrace</h1>
+          <h1 class="name">TITO Amedée<br><span class="name-last">Rytrace</span></h1>
 
-        <p class="tagline"
-           data-fr="Statistique appliquée • Processus stochastiques • Fiabilité"
-           data-en="Applied Statistics • Stochastic Processes • Reliability">
-          Statistique appliquée • Processus stochastiques • Fiabilité
-        </p>
+          <p class="tagline" data-en="Applied statistics • Stochastic processes • Reliability">
+            Statistique appliquée • Processus stochastiques • Fiabilité
+          </p>
 
-        <p class="lede"
-           data-fr="Je développe des modèles probabilistes et des méthodes statistiques pour comprendre et analyser la dégradation des systèmes. Mon travail combine processus stochastiques, tests d'adéquation et analyse de données, avec un objectif : relier la théorie mathématique aux applications réelles en fiabilité."
-           data-en="I develop probabilistic models and statistical methods to understand and analyze system degradation. My work combines stochastic processes, goodness-of-fit tests, and data analysis, with the goal of connecting mathematical theory to real-world applications in reliability.">
-          Je développe des modèles probabilistes et des méthodes statistiques pour comprendre et analyser la dégradation des systèmes. Mon travail combine processus stochastiques, tests d'adéquation et analyse de données, avec un objectif : relier la théorie mathématique aux applications réelles en fiabilité.
-        </p>
+          <p class="typer" aria-hidden="true"><span class="typer-prompt">&gt;</span> <span class="typer-text"></span><span class="typer-caret"></span></p>
 
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#recherche"
-             data-fr="Découvrir mes travaux"
-             data-en="Explore my research">
-            Découvrir mes travaux
-          </a>
+          <p class="lede"
+             data-en="I develop probabilistic models and statistical methods to understand and analyse system degradation. My work combines stochastic processes, goodness-of-fit tests and data analysis, with one goal: connecting mathematical theory to real-world reliability applications.">
+            Je développe des modèles probabilistes et des méthodes statistiques pour comprendre et analyser la dégradation des systèmes. Mon travail combine processus stochastiques, tests d'adéquation et analyse de données, avec un objectif : relier la théorie mathématique aux applications réelles en fiabilité.
+          </p>
 
-          <a class="btn btn-ghost"
-             href="https://www.linkedin.com/in/tito-rytrace"
-             target="_blank"
-             rel="noopener noreferrer">
-            LinkedIn
-          </a>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#recherche">
+              <span data-en="Explore my research">Découvrir mes travaux</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </a>
+            <a class="btn btn-ghost" href="#labo">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 3h6M10 3v6L4.5 18.5A2 2 0 006.2 21.5h11.6a2 2 0 001.7-3L14 9V3"/><path d="M7 15h10"/></svg>
+              <span data-en="Try the simulator">Tester le simulateur</span>
+            </a>
+            <a class="btn btn-ghost" href="cv.pdf" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3v12"/><path d="M6 11l6 6 6-6"/><path d="M4 21h16"/></svg>
+              <span>CV</span>
+            </a>
+          </div>
+        </div>
 
-          <a class="btn btn-ghost"
-             href="cv.pdf"
-             data-fr="Voir mon CV"
-             data-en="View my CV">
-            Voir mon CV
-          </a>
+        <div class="orbit-wrap" aria-hidden="true">
+          <div class="orbit-ring"></div>
+          <div class="avatar-ring">
+            <div class="ring-dot"></div>
+            <div class="avatar-circle">
+              <span class="monogram">TR</span>
+              <img src="assets/photo.webp" alt="" width="800" height="800" loading="eager" decoding="async" onerror="this.remove()">
+            </div>
+          </div>
+
+          <div class="orbit-badge b1" data-name="Python">
+            <svg viewBox="0 0 24 24" width="62%" height="62%"><path d="M12 2c-2.4 0-4 .5-4 2.6v2.2h4.2v.6H6.2C4.1 7.4 2.5 8.7 2.5 12s1.6 4.6 3.7 4.6h1.3v-2.4c0-2.2 1.9-4 4.2-4h3.6c1.9 0 3.4-1.5 3.4-3.4V4.6C18.7 2.5 16.2 2 12 2z" fill="#5b9bff"/><path d="M12 22c2.4 0 4-.5 4-2.6v-2.2h-4.2v-.6h5.9c2.1 0 3.7-1.3 3.7-4.6s-1.6-4.6-3.7-4.6h-1.3v2.4c0 2.2-1.9 4-4.2 4H8.7C6.8 13.8 5.3 15.3 5.3 17.2v2.2c0 2.1 2.5 2.6 6.7 2.6z" fill="#ffd85c"/><circle cx="9.6" cy="4.9" r=".8" fill="#0b0e14"/><circle cx="14.4" cy="19" r=".8" fill="#0b0e14"/></svg>
+          </div>
+          <div class="orbit-badge b2" data-name="R">
+            <svg viewBox="0 0 24 24" width="60%" height="60%"><circle cx="12" cy="12" r="11" fill="none" stroke="#5b9bff" stroke-width="1.4"/><text x="12" y="17" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="13" fill="#5b9bff">R</text></svg>
+          </div>
+          <div class="orbit-badge b3" data-name="Julia">
+            <svg viewBox="0 0 24 24" width="58%" height="58%"><circle cx="12" cy="5.5" r="3.4" fill="#a78bfa"/><circle cx="5.5" cy="17" r="3.4" fill="#34d399"/><circle cx="18.5" cy="17" r="3.4" fill="#ec4899"/></svg>
+          </div>
+          <div class="orbit-badge b4" data-name="Git">
+            <svg viewBox="0 0 24 24" width="58%" height="58%" fill="none" stroke="#ff9a5c" stroke-width="1.8" stroke-linecap="round"><circle cx="6" cy="6" r="2.2" fill="#ff9a5c" stroke="none"/><circle cx="6" cy="18" r="2.2" fill="#ff9a5c" stroke="none"/><circle cx="17" cy="12" r="2.2" fill="#ff9a5c" stroke="none"/><path d="M6 8.2V15.8"/><path d="M6 10c0 3 4 3 8 3s3-1 3-1"/></svg>
+          </div>
+          <div class="orbit-badge b5" data-name="SAS">
+            <svg viewBox="0 0 40 20" width="72%" height="34%"><text x="0" y="16" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="16" fill="#22d3ee">SAS</text></svg>
+          </div>
+          <div class="orbit-badge b6" data-name="GitHub">
+            <svg viewBox="0 0 24 24" width="56%" height="56%" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-2.1c-3.2.7-3.88-1.35-3.88-1.35-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 015.8 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.39-5.25 5.67.42.36.78 1.08.78 2.18v3.23c0 .3.21.66.79.55C20.21 21.39 23.5 17.08 23.5 12c0-6.35-5.15-11.5-11.5-11.5z"/></svg>
+          </div>
+          <div class="orbit-badge b7" data-name="LaTeX">
+            <svg viewBox="0 0 40 24" width="70%" height="42%" fill="currentColor"><text x="0" y="18" font-family="Georgia, serif" font-weight="700" font-size="17">T</text><text x="11" y="12" font-family="Georgia, serif" font-weight="700" font-size="12">E</text><text x="20" y="18" font-family="Georgia, serif" font-weight="700" font-size="17">X</text></svg>
+          </div>
         </div>
       </div>
 
-      <div class="orbit-wrap" aria-hidden="true">
-        <div class="orbit-ring"></div>
+      <div class="wrap">
+        <div class="figures">
+          <div class="figure">
+            <span class="fig-num"><span data-count="7">7</span>+</span>
+            <span class="fig-label" data-en="years of university mathematics">années de mathématiques à l'université</span>
+          </div>
+          <div class="figure">
+            <span class="fig-num"><span data-count="3">3</span></span>
+            <span class="fig-label" data-en="countries: Benin, Togo, France">pays : Bénin, Togo, France</span>
+          </div>
+          <div class="figure">
+            <span class="fig-num"><span data-count="4">4</span></span>
+            <span class="fig-label" data-en="languages: R, Python, Julia, SAS">langages : R, Python, Julia, SAS</span>
+          </div>
+          <div class="figure">
+            <span class="fig-num"><span data-count="15">15</span></span>
+            <span class="fig-label" data-en="GaAs lasers studied on real data">lasers GaAs étudiés sur données réelles</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <div class="avatar-ring">
-          <div class="ring-dot" aria-hidden="true"></div>
-          <div class="avatar-circle">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" style="width:44%;height:44%;opacity:.35;color:var(--ink);">
-              <circle cx="12" cy="8" r="4"></circle>
-              <path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7"></path>
+    <!-- =========================
+         À PROPOS
+    ========================== -->
+    <section id="about">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow"><span class="num">01</span> <span data-en="Profile">Profil</span></p>
+          <h2 class="section-title" data-en-html="From mathematics <em>to applications</em>">Des mathématiques <em>vers les applications</em></h2>
+        </header>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <p data-en="Trained in mathematics and computer science in Benin (FAST–UNSTIM, then IMSP), I went on to study biostatistics at Université Paris Cité, then joined the LMAP in Pau: first as a research intern, and since October 2026 as a PhD candidate, co-supervised with the Laboratoire Jean Kuntzmann in Grenoble.">
+              Formé en mathématiques et en informatique au Bénin (FAST–UNSTIM, puis IMSP), j'ai poursuivi en biostatistique à l'Université Paris Cité, puis rejoint le LMAP à Pau : d'abord en stage de recherche, et depuis octobre 2026 en thèse, co-encadrée avec le Laboratoire Jean Kuntzmann de Grenoble.
+            </p>
+            <p data-en="I am particularly interested in stochastic models, statistical inference and the methods that allow a theoretical model to be confronted with observed data: when is a model good enough to predict a failure?">
+              Je m'intéresse particulièrement aux modèles stochastiques, à l'inférence statistique et aux méthodes permettant de confronter un modèle théorique aux données observées : quand un modèle est-il assez bon pour prédire une panne ?
+            </p>
+
+            <blockquote class="mission">
+              <span class="mission-label" data-en="Research goal">Objectif scientifique</span>
+              <span data-en="Develop reliable, reproducible and useful statistical methods for degradation analysis and system maintenance.">Développer des méthodes statistiques fiables, reproductibles et utiles pour l'analyse de la dégradation et la maintenance des systèmes.</span>
+            </blockquote>
+
+            <div class="tag-row">
+              <span class="tag" data-en="Probability">Probabilités</span>
+              <span class="tag" data-en="Statistics">Statistique</span>
+              <span class="tag" data-en="Reliability">Fiabilité</span>
+              <span class="tag">Data Science</span>
+            </div>
+          </div>
+
+          <aside class="card facts" aria-label="En bref">
+            <h3 data-en="At a glance">En bref</h3>
+            <ul>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/><path d="M22 9v6"/></svg>
+                <span data-en="PhD candidate at LMAP · University of Pau">Doctorant au LMAP · Université de Pau</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 1114 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+                <span>Pau, France</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>
+                <span class="lang-lines">
+                  <span class="lang-line"><span data-en="French">Français</span> <span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span> <span class="level" data-en="native">natif</span></span>
+                  <span class="lang-line"><span data-en="English">Anglais</span> <span class="meter" aria-hidden="true"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span> <span class="level" data-en="intermediate">intermédiaire</span></span>
+                </span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5l4 2.9-1.5 4.6h-5L8 10.4z"/><path d="M12 7.5V3.2M16 10.4l4.2-1.3M14.5 15l2.6 3.6M9.5 15l-2.6 3.6M8 10.4L3.8 9.1"/></svg>
+                <span data-en="Off the clock: football and reading">En dehors des maths : football et lecture</span>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         PARCOURS
+    ========================== -->
+    <section id="parcours">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow"><span class="num">02</span> <span data-en="Experience &amp; education">Expérience &amp; formation</span></p>
+          <h2 class="section-title" data-en-html="From Benin <em>to Pau</em>">Du Bénin <em>à Pau</em></h2>
+        </header>
+
+        <div class="path-grid">
+          <div>
+            <h3 class="col-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2M3 13h18"/></svg>
+              <span data-en="Experience">Expérience</span>
+            </h3>
+            <div class="timeline">
+              <div class="tl-item">
+                <span class="when" data-en="Mar. – Jul. 2026 · LMAP · Pau, France">Mars – juillet 2026 · LMAP · Pau, France</span>
+                <h4 data-en="MSc research intern — Stochastic processes &amp; reliability">Stage de recherche (M2) — Processus stochastiques &amp; fiabilité</h4>
+                <p data-en-html="&lt;strong&gt;Topic:&lt;/strong&gt; goodness-of-fit tests for homogeneous Gamma and Wiener processes.">
+                  <strong>Sujet :</strong> tests d'adéquation pour les processus Gamma et de Wiener homogènes.
+                </p>
+                <ul>
+                  <li data-en="Studied and implemented goodness-of-fit tests for homogeneous Gamma and Wiener processes.">Étude et implémentation de tests d'adéquation pour les processus Gamma et Wiener homogènes.</li>
+                  <li data-en="Parametric bootstrap and nonparametric techniques for degradation-data analysis.">Bootstrap paramétrique et techniques non paramétriques pour l'analyse de données de dégradation.</li>
+                </ul>
+              </div>
+
+              <div class="tl-item">
+                <span class="when" data-en="Aug. – Sep. 2024 · INSEED · Kara, Togo">Août – sept. 2024 · INSEED · Kara, Togo</span>
+                <h4 data-en="Academic internship — Official statistics">Stage académique — Statistique publique</h4>
+                <ul>
+                  <li data-en="Data collection for the Harmonised Consumer Price Index (HCPI).">Collecte de données pour l'Indice Harmonisé des Prix à la Consommation (IHPC).</li>
+                  <li data-en="Updated the 2021 and 2022 statistical yearbooks (Excel).">Mise à jour des annuaires statistiques 2021 et 2022 (Excel).</li>
+                  <li data-en="Produced the 2022 statistical yearbook of the Kara region (SPSS).">Production de l'annuaire statistique 2022 de la région de Kara (SPSS).</li>
+                </ul>
+              </div>
+
+              <div class="tl-item">
+                <span class="when" data-en="Oct. 2023 – Jun. 2024 · Porto-Novo, Benin">Oct. 2023 – juin 2024 · Porto-Novo, Bénin</span>
+                <h4 data-en="Mathematics teacher">Enseignant de mathématiques</h4>
+                <p data-en="Collège catholique Notre-Dame de Lourdes: tutoring and support for middle- and high-school students.">Collège catholique Notre-Dame de Lourdes : cours de soutien et accompagnement d'élèves du collège et du lycée.</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="col-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/><path d="M22 9v6"/></svg>
+              <span data-en="Education">Formation</span>
+            </h3>
+            <div class="timeline">
+              <div class="tl-item current">
+                <span class="when" data-en="Oct. 2026 – present · LMAP, UPPA · Pau, France">Oct. 2026 – aujourd'hui · LMAP, UPPA · Pau, France</span>
+                <h4 data-en="PhD — first year">Doctorat — 1re année</h4>
+                <p data-en-html="&lt;strong&gt;Topic:&lt;/strong&gt; goodness-of-fit tests for degradation processes with or without imperfect maintenance.">
+                  <strong>Sujet :</strong> tests d'adéquation aux processus de dégradation sans ou avec maintenance imparfaite.
+                </p>
+                <p data-en="Supervisors: Christian Paroissin (LMAP) and Franck Corset (Laboratoire Jean Kuntzmann, Grenoble).">Encadrants : Christian Paroissin (LMAP) et Franck Corset (Laboratoire Jean Kuntzmann, Grenoble).</p>
+              </div>
+
+              <div class="tl-item">
+                <span class="when" data-en="Sep. 2025 – Sep. 2026 · Université Paris Cité">Sept. 2025 – sept. 2026 · Université Paris Cité</span>
+                <h4 data-en="MSc — Mathematical Engineering &amp; Biostatistics">Master 2 — Ingénierie Mathématique et Biostatistiques</h4>
+                <p data-en-html="Stochastic algorithms, machine learning, deep learning, survival analysis, nonparametric statistics, differential models and data, game theory, Python. &lt;strong&gt;Internship:&lt;/strong&gt; goodness-of-fit tests for homogeneous Gamma and Wiener processes.">Algorithmes stochastiques, machine learning, deep learning, analyse de survie, statistique non paramétrique, modèles différentiels et données, théorie des jeux, Python. <strong>Stage :</strong> tests d'adéquation pour les processus Gamma et de Wiener homogènes.</p>
+              </div>
+
+              <div class="tl-item">
+                <span class="when" data-en="Oct. 2023 – Aug. 2025 · IMSP–UAC · Dangbo, Benin">Oct. 2023 – août 2025 · IMSP–UAC · Dangbo, Bénin</span>
+                <h4 data-en="MSc (M1 &amp; M2) — Probability &amp; Statistics">Master 1 &amp; 2 — Probabilités et Statistique</h4>
+                <p data-en-html="Time series, data analysis, stochastic calculus, R. &lt;strong&gt;Thesis:&lt;/strong&gt; nonparametric regression with multiple thresholds.">Séries temporelles, analyse de données, calcul stochastique, R. <strong>Mémoire :</strong> régression non paramétrique à seuils multiples.</p>
+              </div>
+
+              <div class="tl-item">
+                <span class="when" data-en="Oct. 2019 – Aug. 2022 · FAST–UNSTIM · Natitingou, Benin">Oct. 2019 – août 2022 · FAST–UNSTIM · Natitingou, Bénin</span>
+                <h4 data-en="BSc — Mathematics &amp; Computer Science">Licence — Mathématiques et Informatique</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         RECHERCHE
+    ========================== -->
+    <section id="recherche">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow"><span class="num">03</span> <span data-en="Research">Recherche</span></p>
+          <h2 class="section-title" data-en-html="Modelling wear, <em>predicting failure</em>">Modéliser l'usure, <em>anticiper la panne</em></h2>
+        </header>
+
+        <article class="card card-feature">
+          <div class="card-top">
+            <span class="when" data-en="PhD thesis · since Oct. 2026">Thèse de doctorat · depuis oct. 2026</span>
+            <span class="status status-progress" data-en="Year 1">1re année</span>
+          </div>
+          <h3 data-en="Goodness-of-fit tests for degradation processes with or without imperfect maintenance">Tests d'adéquation aux processus de dégradation sans ou avec maintenance imparfaite</h3>
+          <p data-en="Before relying on a degradation model to plan maintenance, we must check that it actually describes the data. This thesis develops goodness-of-fit tests for Gamma and Wiener processes, first without maintenance, then when imperfect maintenance actions partially reduce the system's degradation.">
+            Avant de s'appuyer sur un modèle de dégradation pour planifier la maintenance, il faut vérifier qu'il décrit bien les données. La thèse développe des tests d'adéquation pour les processus Gamma et Wiener, d'abord sans maintenance, puis lorsque des maintenances imparfaites réduisent partiellement la dégradation du système.
+          </p>
+          <dl class="meta-list">
+            <div><dt data-en="Lab">Laboratoire</dt><dd data-en="LMAP · University of Pau and the Adour Region">LMAP · Université de Pau et des Pays de l'Adour</dd></div>
+            <div><dt data-en="Supervision">Encadrement</dt><dd>Christian Paroissin (LMAP) · Franck Corset (Laboratoire Jean Kuntzmann, Grenoble)</dd></div>
+          </dl>
+        </article>
+
+        <div class="axes-grid">
+          <article class="card axis">
+            <span class="axis-num">i.</span>
+            <h3 data-en="Degradation models">Modèles de dégradation</h3>
+            <p data-en="Homogeneous Gamma and Wiener processes describe how a system's wear accumulates over time.">Les processus Gamma et Wiener homogènes décrivent l'accumulation de l'usure d'un système au cours du temps.</p>
+            <div class="formula">
+              <span><i>X</i>(<i>t</i>) − <i>X</i>(<i>s</i>) ∼ Γ(<i>α</i>(<i>t</i> − <i>s</i>), <i>β</i>)</span>
+              <span><i>X</i>(<i>t</i>) = <i>μt</i> + <i>σB</i>(<i>t</i>)</span>
+            </div>
+          </article>
+
+          <article class="card axis">
+            <span class="axis-num">ii.</span>
+            <h3 data-en="Goodness-of-fit tests">Tests d'adéquation</h3>
+            <p data-en="Confronting a model with data: Kolmogorov–Smirnov and Cramér–von Mises type statistics, calibrated by parametric bootstrap, including irregular observation times.">Confronter un modèle aux données : statistiques de type Kolmogorov–Smirnov et Cramér–von Mises, calibrées par bootstrap paramétrique, y compris à temps d'observation irréguliers.</p>
+            <div class="formula">
+              <span><i>D<sub>n</sub></i> = sup<sub><i>x</i></sub> |<i class="hat">F</i><sub><i>n</i></sub>(<i>x</i>) − <i>F</i><sub><i class="hat">θ</i></sub>(<i>x</i>)|</span>
+            </div>
+          </article>
+
+          <article class="card axis">
+            <span class="axis-num">iii.</span>
+            <h3 data-en="Imperfect maintenance">Maintenance imparfaite</h3>
+            <p data-en="Accounting for partial repairs, which reduce degradation without restoring the system to new, e.g. the ARD₁ model.">Prendre en compte des réparations partielles, qui réduisent la dégradation sans remettre le système à neuf, par exemple le modèle ARD₁.</p>
+            <div class="formula">
+              <span><i>X</i>(<i>τ<sub>k</sub></i><sup>+</sup>) = <i>X</i>(<i>τ<sub>k</sub></i><sup>−</sup>) − <i>ρ</i> [<i>X</i>(<i>τ<sub>k</sub></i><sup>−</sup>) − <i>X</i>(<i>τ<sub>k−1</sub></i><sup>+</sup>)]</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="research-bottom">
+          <article class="card">
+            <div class="card-top">
+              <span class="when" data-en="Application · Real data">Application · Données réelles</span>
+              <span class="status status-done">GaAs</span>
+            </div>
+            <h3 data-en="Degradation of GaAs lasers">Dégradation de lasers GaAs</h3>
+            <p data-en="Modelling and goodness-of-fit testing on real degradation data.">Modélisation et tests d'adéquation appliqués à des données réelles de dégradation.</p>
+            <dl class="data-specs">
+              <div><dt>15</dt><dd data-en="units">unités</dd></div>
+              <div><dt>250 h</dt><dd data-en="between measurements">entre deux mesures</dd></div>
+              <div><dt>0–4000 h</dt><dd data-en="observation window">de suivi</dd></div>
+            </dl>
+          </article>
+
+          <article class="card">
+            <h3 data-en="Theses &amp; reports">Mémoires &amp; rapports</h3>
+            <ol class="docs-list">
+              <li>
+                <span class="doc-year">2026</span>
+                <span class="doc-body">
+                  <span class="doc-title" data-en="Goodness-of-fit tests for homogeneous Gamma and Wiener processes">Tests d'adéquation pour les processus Gamma et de Wiener homogènes</span>
+                  <span class="doc-meta" data-en="MSc internship report · LMAP, Pau">Rapport de stage de M2 · LMAP, Pau</span>
+                </span>
+              </li>
+              <li>
+                <span class="doc-year">2025</span>
+                <span class="doc-body">
+                  <span class="doc-title" data-en="Nonparametric regression with multiple thresholds">Régression non paramétrique à seuils multiples</span>
+                  <span class="doc-meta" data-en="Master's thesis · IMSP, Benin">Mémoire de Master · IMSP, Bénin</span>
+                </span>
+              </li>
+              <li>
+                <span class="doc-year">2024</span>
+                <span class="doc-body">
+                  <span class="doc-title" data-en="Autoregressive processes">Processus autorégressifs</span>
+                  <span class="doc-meta" data-en="M1 supervised project · IMSP, Benin">Projet tutoré M1 · IMSP, Bénin</span>
+                </span>
+              </li>
+            </ol>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+         LABORATOIRE INTERACTIF
+    ========================== -->
+    <section id="labo">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow"><span class="num">04</span> <span data-en="Interactive lab">Laboratoire interactif</span></p>
+          <h2 class="section-title" data-en-html="Simulate a <em>degradation process</em>">Simulez un <em>processus de dégradation</em></h2>
+          <p class="section-intro" data-en="Each curve is the wear of a system over time. When it crosses the threshold L, the system fails. Play with the parameters: this is exactly the kind of model I study.">
+            Chaque courbe représente l'usure d'un système au cours du temps. Quand elle franchit le seuil L, le système tombe en panne. Jouez avec les paramètres : c'est exactement le type de modèle que j'étudie.
+          </p>
+        </header>
+
+        <div class="lab">
+          <form class="card static lab-controls" onsubmit="return false">
+            <div class="seg" role="radiogroup" aria-label="Modèle">
+              <label><input type="radio" name="model" value="gamma" checked><span>Gamma</span></label>
+              <label><input type="radio" name="model" value="wiener"><span>Wiener</span></label>
+            </div>
+
+            <div class="lab-group" data-model="gamma">
+              <label class="slider">
+                <span class="slider-head"><span><span data-en="Shape">Forme</span> <i>α</i> <small data-en="(per 1000 h)">(par 1000 h)</small></span><output data-for="alpha"></output></span>
+                <input type="range" name="alpha" min="0.5" max="20" step="0.5" value="5">
+              </label>
+              <label class="slider">
+                <span class="slider-head"><span><span data-en="Scale">Échelle</span> <i>β</i></span><output data-for="beta"></output></span>
+                <input type="range" name="beta" min="0.1" max="2" step="0.05" value="0.5">
+              </label>
+            </div>
+
+            <div class="lab-group" data-model="wiener" hidden>
+              <label class="slider">
+                <span class="slider-head"><span><span data-en="Drift">Dérive</span> <i>μ</i> <small data-en="(per 1000 h)">(par 1000 h)</small></span><output data-for="mu"></output></span>
+                <input type="range" name="mu" min="0.5" max="6" step="0.1" value="2.5">
+              </label>
+              <label class="slider">
+                <span class="slider-head"><span><span data-en="Volatility">Volatilité</span> <i>σ</i></span><output data-for="sigma"></output></span>
+                <input type="range" name="sigma" min="0.1" max="4" step="0.1" value="1.5">
+              </label>
+            </div>
+
+            <label class="slider">
+              <span class="slider-head"><span><span data-en="Failure threshold">Seuil de défaillance</span> <i>L</i></span><output data-for="L"></output></span>
+              <input type="range" name="L" min="2" max="20" step="0.5" value="10">
+            </label>
+
+            <label class="switch">
+              <input type="checkbox" name="maint">
+              <span class="switch-track" aria-hidden="true"></span>
+              <span><span data-en="Imperfect maintenance">Maintenance imparfaite</span> <small>(ARD₁)</small></span>
+            </label>
+
+            <div class="lab-group lab-maint" hidden>
+              <label class="slider">
+                <span class="slider-head"><span><span data-en="Every">Toutes les</span> <i>τ</i></span><output data-for="tau"></output></span>
+                <input type="range" name="tau" min="250" max="2000" step="250" value="1000">
+              </label>
+              <label class="slider">
+                <span class="slider-head"><span><span data-en="Efficiency">Efficacité</span> <i>ρ</i></span><output data-for="rho"></output></span>
+                <input type="range" name="rho" min="0" max="1" step="0.05" value="0.5">
+              </label>
+            </div>
+
+            <div class="formula lab-formula"></div>
+
+            <button type="button" class="btn btn-ghost lab-reseed">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 11a8 8 0 10-2.3 5.7"/><path d="M20 4v7h-7"/></svg>
+              <span data-en="New draw">Nouveau tirage</span>
+            </button>
+          </form>
+
+          <div class="lab-output">
+            <figure class="card static lab-plot">
+              <canvas id="lab-paths" role="img" aria-label="Trajectoires simulées de dégradation et seuil de défaillance"></canvas>
+              <figcaption class="legend">
+                <span><i class="lg-line"></i><span data-en="trajectory">trajectoire</span></span>
+                <span><i class="lg-dot"></i><span data-en="failure">défaillance</span></span>
+                <span><i class="lg-dash"></i><span data-en="threshold L">seuil L</span></span>
+                <span class="lg-maint-wrap" hidden><i class="lg-maint"></i><span data-en="maintenance">maintenance</span></span>
+              </figcaption>
+            </figure>
+
+            <div class="lab-stats">
+              <div class="stat-tile">
+                <span class="stat-k" data-en="Mean time to failure">Temps moyen avant panne</span>
+                <span class="stat-v" id="st-mttf">—</span>
+                <span class="stat-s" id="st-mttf-s">MTTF</span>
+              </div>
+              <div class="stat-tile">
+                <span class="stat-k" data-en="Median lifetime">Durée de vie médiane</span>
+                <span class="stat-v" id="st-med">—</span>
+                <span class="stat-s" data-en="half the systems have failed">la moitié des systèmes est en panne</span>
+              </div>
+              <div class="stat-tile">
+                <span class="stat-k" data-en="Reliability at 4000 h">Fiabilité à 4000 h</span>
+                <span class="stat-v" id="st-rel">—</span>
+                <span class="stat-s">R(4000 h) = P(T &gt; 4000 h)</span>
+              </div>
+            </div>
+
+            <figure class="card static lab-hist">
+              <figcaption data-en="Distribution of failure times T (Monte Carlo)">Distribution des temps de panne T (Monte-Carlo)</figcaption>
+              <canvas id="lab-hist" role="img" aria-label="Histogramme des temps de défaillance"></canvas>
+            </figure>
+          </div>
+        </div>
+
+        <p class="lab-note" data-en="Monte Carlo simulation of 800 systems, computed live in your browser: nothing is precomputed.">Simulation Monte-Carlo de 800 systèmes, calculée en direct dans votre navigateur : rien n'est précalculé.</p>
+      </div>
+    </section>
+
+    <!-- =========================
+         PROJETS
+    ========================== -->
+    <section id="projets">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow"><span class="num">05</span> <span data-en="Selected work">Réalisations</span></p>
+          <h2 class="section-title" data-en-html="Projects, <em>from data to decisions</em>">Projets, <em>des données aux décisions</em></h2>
+        </header>
+
+        <div class="card-grid">
+          <article class="card project">
+            <svg class="project-art" viewBox="0 0 320 120" aria-hidden="true">
+              <path class="axis" d="M24 10V104H306"/>
+              <path class="c2" d="M24 18H70V30H112V44H150V52H198V68H246V76H300"/>
+              <path class="c3" d="M24 18H56V38H96V60H138V78H184V90H236V98H300"/>
+              <path class="c2 tick" d="M88 26v8M170 48v8M270 72v8"/>
+              <path class="c3 tick" d="M76 34v8M160 74v8M262 94v8"/>
             </svg>
-          </div>
-        </div>
+            <span class="when" data-en="R · Université Paris Cité · Sep. 2025">R · Université Paris Cité · sept. 2025</span>
+            <h3 data-en="Survival analysis of hospital stays">Analyse de survie des durées d'hospitalisation</h3>
+            <ul>
+              <li data-en="Simulated patient data (times, censoring, clinical covariates).">Simulation de données patients (temps, censure, covariables cliniques).</li>
+              <li data-en="Kaplan–Meier curves and Cox regression.">Courbes de Kaplan–Meier et régression de Cox.</li>
+              <li data-en="Validation with Schoenfeld residuals, interactive hazard-ratio plots.">Validation par résidus de Schoenfeld, visualisation interactive des hazard ratios.</li>
+            </ul>
+            <div class="tag-row">
+              <span class="tag">R</span>
+              <span class="tag" data-en="Survival">Survie</span>
+              <span class="tag">Cox</span>
+              <span class="tag">Kaplan–Meier</span>
+            </div>
+          </article>
 
-        <div class="orbit-badge b1" title="Python" data-name="Python">
-          <svg viewBox="0 0 24 24" width="62%" height="62%">
-            <path d="M12 2c-2.4 0-4 .5-4 2.6v2.2h4.2v.6H6.2C4.1 7.4 2.5 8.7 2.5 12s1.6 4.6 3.7 4.6h1.3v-2.4c0-2.2 1.9-4 4.2-4h3.6c1.9 0 3.4-1.5 3.4-3.4V4.6C18.7 2.5 16.2 2 12 2z" fill="#5b9bff"/>
-            <path d="M12 22c2.4 0 4-.5 4-2.6v-2.2h-4.2v-.6h5.9c2.1 0 3.7-1.3 3.7-4.6s-1.6-4.6-3.7-4.6h-1.3v2.4c0 2.2-1.9 4-4.2 4H8.7C6.8 13.8 5.3 15.3 5.3 17.2v2.2c0 2.1 2.5 2.6 6.7 2.6z" fill="#ffd85c"/>
-            <circle cx="9.6" cy="4.9" r=".8" fill="#0b0e14"/>
-            <circle cx="14.4" cy="19" r=".8" fill="#0b0e14"/>
-          </svg>
-        </div>
-        <div class="orbit-badge b2" title="R" data-name="R">
-          <svg viewBox="0 0 24 24" width="60%" height="60%"><circle cx="12" cy="12" r="11" fill="none" stroke="#5b9bff" stroke-width="1.4"/><text x="12" y="17" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="13" fill="#5b9bff">R</text></svg>
-        </div>
-        <div class="orbit-badge b3" title="Julia" data-name="Julia">
-          <svg viewBox="0 0 24 24" width="58%" height="58%">
-            <circle cx="12" cy="5.5" r="3.4" fill="#a78bfa"/>
-            <circle cx="5.5" cy="17" r="3.4" fill="#34d399"/>
-            <circle cx="18.5" cy="17" r="3.4" fill="#ec4899"/>
-          </svg>
-        </div>
-        <div class="orbit-badge b4" title="Git" data-name="Git">
-          <svg viewBox="0 0 24 24" width="58%" height="58%" fill="none" stroke="#ff9a5c" stroke-width="1.8" stroke-linecap="round">
-            <circle cx="6" cy="6" r="2.2" fill="#ff9a5c" stroke="none"/>
-            <circle cx="6" cy="18" r="2.2" fill="#ff9a5c" stroke="none"/>
-            <circle cx="17" cy="12" r="2.2" fill="#ff9a5c" stroke="none"/>
-            <path d="M6 8.2V15.8"/>
-            <path d="M6 10c0 3 4 3 8 3s3-1 3-1"/>
-          </svg>
-        </div>
-        <div class="orbit-badge b5" title="SAS" data-name="SAS">
-          <svg viewBox="0 0 40 20" width="72%" height="34%">
-            <text x="0" y="16" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="16" fill="#22d3ee">SAS</text>
-          </svg>
-        </div>
-        <div class="orbit-badge b6" title="GitHub" data-name="GitHub">
-          <svg viewBox="0 0 24 24" width="56%" height="56%" fill="#f4f4f5">
-            <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55v-2.1c-3.2.7-3.88-1.35-3.88-1.35-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 015.8 0c2.21-1.49 3.18-1.18 3.18-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.39-5.25 5.67.42.36.78 1.08.78 2.18v3.23c0 .3.21.66.79.55C20.21 21.39 23.5 17.08 23.5 12c0-6.35-5.15-11.5-11.5-11.5z"/>
-          </svg>
-        </div>
-        <div class="orbit-badge b7" title="LaTeX" data-name="LaTeX">
-          <svg viewBox="0 0 40 24" width="70%" height="42%">
-            <text x="0" y="18" font-family="Georgia, serif" font-weight="700" font-size="17" fill="#f4f4f5">T</text>
-            <text x="11" y="12" font-family="Georgia, serif" font-weight="700" font-size="12" fill="#f4f4f5">E</text>
-            <text x="20" y="18" font-family="Georgia, serif" font-weight="700" font-size="17" fill="#f4f4f5">X</text>
-          </svg>
+          <article class="card project">
+            <svg class="project-art" viewBox="0 0 320 120" aria-hidden="true">
+              <path class="axis" d="M24 10V104H306"/>
+              <g class="c1 pts">
+                <circle cx="40" cy="92" r="3"/><circle cx="56" cy="84" r="3"/><circle cx="66" cy="94" r="3"/><circle cx="82" cy="78" r="3"/><circle cx="96" cy="86" r="3"/><circle cx="108" cy="70" r="3"/><circle cx="122" cy="76" r="3"/><circle cx="136" cy="62" r="3"/><circle cx="148" cy="72" r="3"/><circle cx="160" cy="56" r="3"/><circle cx="176" cy="60" r="3"/><circle cx="190" cy="46" r="3"/><circle cx="204" cy="54" r="3"/><circle cx="218" cy="40" r="3"/><circle cx="232" cy="46" r="3"/><circle cx="246" cy="30" r="3"/><circle cx="260" cy="38" r="3"/><circle cx="276" cy="24" r="3"/><circle cx="290" cy="30" r="3"/>
+              </g>
+              <path class="c3" d="M32 96L298 22"/>
+            </svg>
+            <span class="when" data-en="SAS · Julia · Université Paris Cité · Nov. 2025">SAS · Julia · Université Paris Cité · nov. 2025</span>
+            <h3 data-en="Predicting university salaries">Prédiction des salaires universitaires</h3>
+            <ul>
+              <li data-en="Descriptive analysis of 397 profiles (sex, discipline, years since PhD…).">Analyse descriptive de 397 profils (sexe, discipline, ancienneté post-thèse…).</li>
+              <li data-en="Multiple linear regression in SAS, random forest in Julia.">Régression linéaire multiple sous SAS, forêt aléatoire sous Julia.</li>
+              <li data-en="PCA and hierarchical clustering to group profiles.">ACP et CAH pour classer les profils.</li>
+            </ul>
+            <div class="tag-row">
+              <span class="tag">SAS</span>
+              <span class="tag">Julia</span>
+              <span class="tag">Machine Learning</span>
+              <span class="tag" data-en="PCA">ACP</span>
+            </div>
+          </article>
+
+          <article class="card project">
+            <svg class="project-art" viewBox="0 0 320 120" aria-hidden="true">
+              <path class="axis" d="M24 10V104H306"/>
+              <path class="c3 dash" d="M24 34H306"/>
+              <path class="c1 faint" d="M24 104L44 102L60 101L66 95L90 93L102 88L124 86L132 80L150 79L166 72L184 70L196 64L220 62L230 57L256 55L270 49L300 47"/>
+              <path class="c2" d="M24 104L40 103L52 98L74 96L84 90L100 88L110 80L128 78L138 70L156 67L166 58L180 56L188 48L204 46L212 40L226 38L232 34"/>
+              <circle class="c3 dot" cx="232" cy="34" r="4.5"/>
+            </svg>
+            <span class="when" data-en="R · IMSP · Mar. 2025">R · IMSP · mars 2025</span>
+            <h3 data-en="Gamma process for predictive maintenance">Processus Gamma pour la maintenance prédictive</h3>
+            <ul>
+              <li data-en="Simulated a Gamma degradation process; shape and scale estimated by maximum likelihood.">Simulation d'un processus Gamma ; forme et échelle estimées par maximum de vraisemblance.</li>
+              <li data-en="Kolmogorov–Smirnov and Cramér–von Mises tests: p-value of 0.92, excellent fit.">Tests de Kolmogorov–Smirnov et Cramér–von Mises : p-value de 0,92, excellent ajustement.</li>
+              <li data-en="Extrapolated future trajectories for predictive maintenance.">Extrapolation des trajectoires futures pour la maintenance prédictive.</li>
+            </ul>
+            <div class="tag-row">
+              <span class="tag">R</span>
+              <span class="tag">MLE</span>
+              <span class="tag">Gamma</span>
+              <span class="tag" data-en="Reliability">Fiabilité</span>
+            </div>
+          </article>
+
+          <article class="card project">
+            <svg class="project-art" viewBox="0 0 320 120" aria-hidden="true">
+              <defs><marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L8 4L0 8z" fill="currentColor"/></marker></defs>
+              <circle class="axis" cx="160" cy="60" r="48" fill="none"/>
+              <path class="axis" d="M104 60H216M160 4V116"/>
+              <g class="c1 arrows">
+                <path d="M160 60L200 28" marker-end="url(#arrow)"/>
+                <path d="M160 60L204 50" marker-end="url(#arrow)"/>
+                <path d="M160 60L128 24" marker-end="url(#arrow)"/>
+                <path d="M160 60L118 82" marker-end="url(#arrow)"/>
+                <path d="M160 60L190 96" marker-end="url(#arrow)"/>
+              </g>
+            </svg>
+            <span class="when" data-en="R · IMSP · Aug. 2025">R · IMSP · août 2025</span>
+            <h3 data-en="Principal component analysis of public spending">Analyse en composantes principales des dépenses publiques</h3>
+            <ul>
+              <li data-en="PCA with FactoMineR and factoextra: 11 spending categories over 24 years.">ACP avec FactoMineR et factoextra : 11 catégories de dépenses sur 24 ans.</li>
+              <li data-en="Dimension reduction and identification of structures and trends.">Réduction de dimension et identification de structures et de tendances.</li>
+            </ul>
+            <div class="tag-row">
+              <span class="tag">R</span>
+              <span class="tag">FactoMineR</span>
+              <span class="tag" data-en="PCA">ACP</span>
+              <span class="tag" data-en="HCA">CAH</span>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
     <!-- =========================
-         ABOUT
+         COMPÉTENCES
     ========================== -->
-    <section id="about" class="wrap">
-      <p class="eyebrow" data-fr="Profil" data-en="Profile">Profil</p>
-      <h2 class="section-title" data-fr="À propos de moi" data-en="About me">À propos de moi</h2>
+    <section id="competences">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow"><span class="num">06</span> <span data-en="Toolbox">Boîte à outils</span></p>
+          <h2 class="section-title" data-en-html="Skills">Compétences</h2>
+        </header>
 
-      <div class="two-col">
-        <div class="card">
-          <h3 data-fr="Des mathématiques vers les applications"
-              data-en="From mathematics to applications">
-            Des mathématiques vers les applications
-          </h3>
-
-          <p data-fr="Ma formation en probabilités, statistique et mathématiques appliquées m'a conduit vers l'étude des systèmes dynamiques et de leur dégradation. Je m'intéresse particulièrement aux modèles stochastiques, à l'inférence statistique et aux méthodes permettant de confronter un modèle théorique aux données observées."
-             data-en="My background in probability, statistics and applied mathematics has led me to study dynamic systems and their degradation. I am particularly interested in stochastic models, statistical inference, and methods for comparing theoretical models with observed data.">
-            Ma formation en probabilités, statistique et mathématiques appliquées m'a conduit vers l'étude des systèmes dynamiques et de leur dégradation. Je m'intéresse particulièrement aux modèles stochastiques, à l'inférence statistique et aux méthodes permettant de confronter un modèle théorique aux données observées.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3 data-fr="Objectif scientifique"
-              data-en="Research direction">
-            Objectif scientifique
-          </h3>
-
-          <p data-fr="Développer des méthodes statistiques fiables, reproductibles et utiles pour l'analyse de la dégradation et la maintenance des systèmes."
-             data-en="Develop reliable, reproducible and useful statistical methods for degradation analysis and system maintenance.">
-            Développer des méthodes statistiques fiables, reproductibles et utiles pour l'analyse de la dégradation et la maintenance des systèmes.
-          </p>
-
-          <div class="tag-row">
-            <span class="tag">Probabilités</span>
-            <span class="tag">Statistique</span>
-            <span class="tag">Fiabilité</span>
-            <span class="tag">Data Science</span>
+        <div class="skills-grid">
+          <div class="card skill">
+            <h3 data-en="Programming">Programmation</h3>
+            <div class="tag-row tag-row-blue">
+              <span class="tag">R</span><span class="tag">Python</span><span class="tag">Julia</span><span class="tag">SAS</span><span class="tag">LaTeX / Beamer</span>
+            </div>
+          </div>
+          <div class="card skill">
+            <h3 data-en="Probability &amp; statistics">Probabilités &amp; statistique</h3>
+            <div class="tag-row tag-row-green">
+              <span class="tag" data-en="Stochastic processes">Processus stochastiques</span><span class="tag" data-en="Inference">Inférence</span><span class="tag" data-en="Nonparametric statistics">Statistique non paramétrique</span><span class="tag" data-en="Time series">Séries temporelles</span><span class="tag" data-en="Survival analysis">Analyse de survie</span><span class="tag">Bootstrap</span>
+            </div>
+          </div>
+          <div class="card skill">
+            <h3>Machine learning</h3>
+            <div class="tag-row tag-row-purple">
+              <span class="tag" data-en="Regression">Régression</span><span class="tag" data-en="Random forests">Forêts aléatoires</span><span class="tag" data-en="PCA / HCA">ACP / CAH</span><span class="tag">Deep Learning</span><span class="tag" data-en="Stochastic algorithms">Algorithmes stochastiques</span>
+            </div>
+          </div>
+          <div class="card skill">
+            <h3 data-en="R ecosystem">Écosystème R</h3>
+            <div class="tag-row tag-row-blue">
+              <span class="tag">FactoMineR</span><span class="tag">factoextra</span><span class="tag">TSA</span><span class="tag">Faraway</span>
+            </div>
+          </div>
+          <div class="card skill">
+            <h3 data-en="Python ecosystem">Écosystème Python</h3>
+            <div class="tag-row tag-row-orange">
+              <span class="tag">NumPy</span><span class="tag">Pandas</span><span class="tag">Scikit-learn</span><span class="tag">Keras</span><span class="tag">TensorFlow</span>
+            </div>
+          </div>
+          <div class="card skill">
+            <h3 data-en="Tools">Outils</h3>
+            <div class="tag-row tag-row-pink">
+              <span class="tag">Git &amp; GitHub</span><span class="tag">Jupyter</span><span class="tag">Google Colab</span><span class="tag">TeXstudio</span><span class="tag">SPSS</span><span class="tag">Excel</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- =========================
-         EXPERIENCE
+         TRANSMISSION
     ========================== -->
-    <section id="experience" class="wrap">
-      <p class="eyebrow" data-fr="Parcours professionnel" data-en="Professional path">
-        Parcours professionnel
-      </p>
-      <h2 class="section-title" data-fr="Expérience" data-en="Experience">Expérience</h2>
+    <section id="enseignement">
+      <div class="wrap">
+        <header class="section-head">
+          <p class="eyebrow"><span class="num">07</span> <span data-en="Teaching &amp; outreach">Transmission</span></p>
+          <h2 class="section-title" data-en-html="Explaining maths <em>to everyone</em>">Expliquer les maths <em>à tous</em></h2>
+        </header>
 
-      <div class="timeline">
+        <div class="teach-grid">
+          <div class="teach-text">
+            <p data-en="Before research, there was teaching: a year spent helping middle- and high-school students in Porto-Novo strengthen their foundations and regain confidence in mathematics.">
+              Avant la recherche, il y a eu l'enseignement : une année à accompagner des élèves du collège et du lycée à Porto-Novo pour consolider leurs bases et reprendre confiance en mathématiques.
+            </p>
+            <p data-en="I keep that habit today by creating educational content that makes statistical ideas accessible, from Gauss to extreme values.">
+              Je garde cette habitude aujourd'hui en créant des contenus pédagogiques qui rendent les idées statistiques accessibles, de Gauss aux valeurs extrêmes.
+            </p>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/tito-rytrace" target="_blank" rel="noopener noreferrer">
+              <span data-en="Read my posts on LinkedIn">Lire mes posts sur LinkedIn</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg>
+            </a>
+          </div>
 
-        <div class="tl-item">
-          <span class="when">Mars 2026 – Juillet 2026 · LMAP · Pau</span>
-          <h3 data-fr="Stage de recherche — Processus stochastiques & fiabilité"
-              data-en="Research internship — Stochastic processes & reliability">
-            Stage de recherche — Processus stochastiques & fiabilité
-          </h3>
-
-          <p data-fr="Sujet : Tests d'adéquation aux processus de dégradation avec ou sans maintenance imparfaite."
-             data-en="Topic: Goodness-of-fit tests for degradation processes with or without imperfect maintenance.">
-            Sujet : Tests d'adéquation aux processus de dégradation avec ou sans maintenance imparfaite.
-          </p>
-
-          <ul>
-            <li data-fr="Étude et implémentation de tests d'adéquation pour les processus Gamma et Wiener homogènes."
-                data-en="Study and implementation of goodness-of-fit tests for homogeneous Gamma and Wiener processes.">
-              Étude et implémentation de tests d'adéquation pour les processus Gamma et Wiener homogènes.
-            </li>
-            <li data-fr="Utilisation de bootstrap paramétrique et de méthodes statistiques pour l'analyse de données de dégradation."
-                data-en="Use of parametric bootstrap and statistical methods for degradation-data analysis.">
-              Utilisation de bootstrap paramétrique et de méthodes statistiques pour l'analyse de données de dégradation.
-            </li>
+          <ul class="topics">
+            <li class="topic"><span class="topic-sym">𝒩(<i>μ</i>, <i>σ</i>²)</span><span class="topic-name" data-en="Gauss &amp; the normal law">Gauss &amp; la loi normale</span></li>
+            <li class="topic"><span class="topic-sym"><i>σ<sub>t</sub></i>²</span><span class="topic-name" data-en="Volatility models">Modèles de volatilité</span></li>
+            <li class="topic"><span class="topic-sym"><i>ξ</i></span><span class="topic-name" data-en="Extreme values">Valeurs extrêmes</span></li>
+            <li class="topic"><span class="topic-sym">PC<sub>1</sub>·PC<sub>2</sub></span><span class="topic-name" data-en="PCA">ACP</span></li>
+            <li class="topic"><span class="topic-sym">Γ(<i>α</i>, <i>β</i>)</span><span class="topic-name" data-en="The Gamma distribution">La loi Gamma</span></li>
+            <li class="topic"><span class="topic-sym"><i class="hat">y</i> = <i>X</i><i class="hat">β</i></span><span class="topic-name" data-en="Linear regression">Régression linéaire</span></li>
+            <li class="topic"><span class="topic-sym julia" aria-hidden="true"><i></i><i></i><i></i></span><span class="topic-name" data-en="The Julia language">Le langage Julia</span></li>
           </ul>
         </div>
-
-        <div class="tl-item">
-          <span class="when">Août 2024 – Septembre 2024 · INSEED · Togo</span>
-          <h3 data-fr="Stage académique — Statistique publique"
-              data-en="Academic internship — Official statistics">
-            Stage académique — Statistique publique
-          </h3>
-
-          <ul>
-            <li data-fr="Participation à la collecte de données pour l'élaboration de l'Indice Harmonisé des Prix à la Consommation."
-                data-en="Participation in data collection for the Harmonized Consumer Price Index.">
-              Participation à la collecte de données pour l'élaboration de l'Indice Harmonisé des Prix à la Consommation.
-            </li>
-            <li data-fr="Mise à jour d'annuaires statistiques avec Excel et production d'un annuaire régional sous SPSS."
-                data-en="Updated statistical yearbooks with Excel and produced a regional yearbook using SPSS.">
-              Mise à jour d'annuaires statistiques avec Excel et production d'un annuaire régional sous SPSS.
-            </li>
-          </ul>
-        </div>
-
-        <div class="tl-item">
-          <span class="when">Octobre 2023 – Juin 2024 · Porto-Novo · Bénin</span>
-          <h3 data-fr="Enseignant de mathématiques"
-              data-en="Mathematics teacher">
-            Enseignant de mathématiques
-          </h3>
-
-          <p data-fr="Cours de soutien et accompagnement d'élèves du collège et du lycée dans le renforcement de leurs compétences en mathématiques."
-             data-en="Tutoring and support for middle- and high-school students to strengthen their mathematics skills.">
-            Cours de soutien et accompagnement d'élèves du collège et du lycée dans le renforcement de leurs compétences en mathématiques.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- =========================
-         RESEARCH
-    ========================== -->
-    <section id="recherche" class="wrap">
-      <p class="eyebrow" data-fr="Travaux scientifiques" data-en="Scientific work">
-        Travaux scientifiques
-      </p>
-      <h2 class="section-title" data-fr="Recherche" data-en="Research">Recherche</h2>
-
-      <div class="stat-row">
-        <div class="stat-block">
-          <span class="stat-num">Γ</span>
-          <span class="stat-label"
-                data-fr="Processus Gamma pour la modélisation de la dégradation"
-                data-en="Gamma processes for degradation modelling">
-            Processus Gamma pour la modélisation de la dégradation
-          </span>
-        </div>
-
-        <div class="stat-block">
-          <span class="stat-num">GOF</span>
-          <span class="stat-label"
-                data-fr="Tests d'adéquation pour confronter modèles et données"
-                data-en="Goodness-of-fit tests to compare models and data">
-            Tests d'adéquation pour confronter modèles et données
-          </span>
-        </div>
-
-        <div class="stat-block">
-          <span class="stat-num">R</span>
-          <span class="stat-label"
-                data-fr="Simulation, estimation et analyse statistique"
-                data-en="Simulation, estimation and statistical analysis">
-            Simulation, estimation et analyse statistique
-          </span>
-        </div>
-      </div>
-
-      <div class="card-grid">
-
-        <article class="card">
-          <div class="card-top">
-            <span class="when">LMAP · 2026</span>
-            <span class="status status-progress"
-                  data-fr="Recherche"
-                  data-en="Research">
-              Recherche
-            </span>
-          </div>
-
-          <h3 data-fr="Tests d'adéquation pour les processus de dégradation"
-              data-en="Goodness-of-fit tests for degradation processes">
-            Tests d'adéquation pour les processus de dégradation
-          </h3>
-
-          <p data-fr="Développement et étude de méthodes de test pour les processus Gamma et Wiener homogènes, avec une attention portée à la simulation, au bootstrap et aux temps d'observation irréguliers."
-             data-en="Development and study of testing methods for homogeneous Gamma and Wiener processes, with a focus on simulation, bootstrap and irregular observation times.">
-            Développement et étude de méthodes de test pour les processus Gamma et Wiener homogènes, avec une attention portée à la simulation, au bootstrap et aux temps d'observation irréguliers.
-          </p>
-
-          <div class="tag-row">
-            <span class="tag">Processus Gamma</span>
-            <span class="tag">Wiener</span>
-            <span class="tag">Bootstrap</span>
-            <span class="tag">GOF</span>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-top">
-            <span class="when">Dégradation · Données réelles</span>
-            <span class="status status-done"
-                  data-fr="Application"
-                  data-en="Application">
-              Application
-            </span>
-          </div>
-
-          <h3 data-fr="Dégradation de lasers GaAs"
-              data-en="GaAs laser degradation">
-            Dégradation de lasers GaAs
-          </h3>
-
-          <p data-fr="Application de méthodes de modélisation et de tests d'adéquation à des données réelles de dégradation de 15 unités, observées toutes les 250 heures sur une période de 0 à 4000 heures."
-             data-en="Application of modelling and goodness-of-fit methods to real degradation data from 15 units, measured every 250 hours over 0–4000 hours.">
-            Application de méthodes de modélisation et de tests d'adéquation à des données réelles de dégradation de 15 unités, observées toutes les 250 heures sur une période de 0 à 4000 heures.
-          </p>
-
-          <div class="tag-row">
-            <span class="tag">Données réelles</span>
-            <span class="tag">Fiabilité</span>
-            <span class="tag">Dégradation</span>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- =========================
-         PROJECTS
-    ========================== -->
-    <section id="projets" class="wrap">
-      <p class="eyebrow" data-fr="Réalisations" data-en="Selected work">Réalisations</p>
-      <h2 class="section-title" data-fr="Projets" data-en="Projects">Projets</h2>
-
-      <div class="card-grid">
-
-        <article class="card">
-          <span class="when">R · Septembre 2025</span>
-          <h3 data-fr="Analyse de survie des durées d'hospitalisation"
-              data-en="Survival analysis of hospital stays">
-            Analyse de survie des durées d'hospitalisation
-          </h3>
-
-          <p data-fr="Simulation de données, estimation Kaplan–Meier, modèle de Cox et validation par résidus de Schoenfeld."
-             data-en="Data simulation, Kaplan–Meier estimation, Cox regression and validation using Schoenfeld residuals.">
-            Simulation de données, estimation Kaplan–Meier, modèle de Cox et validation par résidus de Schoenfeld.
-          </p>
-
-          <div class="tag-row">
-            <span class="tag">R</span>
-            <span class="tag">Survie</span>
-            <span class="tag">Cox</span>
-            <span class="tag">Kaplan–Meier</span>
-          </div>
-        </article>
-
-        <article class="card">
-          <span class="when">SAS · Julia · Novembre 2025</span>
-          <h3 data-fr="Prédiction des salaires universitaires"
-              data-en="University salary prediction">
-            Prédiction des salaires universitaires
-          </h3>
-
-          <p data-fr="Régression linéaire multiple, forêt aléatoire, ACP et classification de profils universitaires."
-             data-en="Multiple linear regression, random forest, PCA and classification of university profiles.">
-            Régression linéaire multiple, forêt aléatoire, ACP et classification de profils universitaires.
-          </p>
-
-          <div class="tag-row">
-            <span class="tag">SAS</span>
-            <span class="tag">Julia</span>
-            <span class="tag">Machine Learning</span>
-            <span class="tag">ACP</span>
-          </div>
-        </article>
-
-        <article class="card">
-          <span class="when">R · Mars 2025</span>
-          <h3 data-fr="Processus Gamma pour la maintenance prédictive"
-              data-en="Gamma process for predictive maintenance">
-            Processus Gamma pour la maintenance prédictive
-          </h3>
-
-          <p data-fr="Simulation d'un processus de dégradation Gamma, estimation des paramètres par maximum de vraisemblance, tests de Kolmogorov–Smirnov et Cramér–von Mises, puis extrapolation de la trajectoire."
-             data-en="Simulation of a Gamma degradation process, maximum-likelihood parameter estimation, Kolmogorov–Smirnov and Cramér–von Mises tests, followed by trajectory extrapolation.">
-            Simulation d'un processus de dégradation Gamma, estimation des paramètres par maximum de vraisemblance, tests de Kolmogorov–Smirnov et Cramér–von Mises, puis extrapolation de la trajectoire.
-          </p>
-
-          <div class="tag-row">
-            <span class="tag">R</span>
-            <span class="tag">MLE</span>
-            <span class="tag">Gamma</span>
-            <span class="tag">Fiabilité</span>
-          </div>
-        </article>
-
-        <article class="card">
-          <span class="when">R · Août 2025</span>
-          <h3 data-fr="Analyse en composantes principales"
-              data-en="Principal component analysis">
-            Analyse en composantes principales
-          </h3>
-
-          <p data-fr="Application de l'ACP et de méthodes de classification à des données de dépenses publiques."
-             data-en="Application of PCA and clustering methods to public expenditure data.">
-            Application de l'ACP et de méthodes de classification à des données de dépenses publiques.
-          </p>
-
-          <div class="tag-row">
-            <span class="tag">R</span>
-            <span class="tag">FactoMineR</span>
-            <span class="tag">ACP</span>
-            <span class="tag">CAH</span>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- =========================
-         EDUCATION
-    ========================== -->
-    <section id="formation" class="wrap">
-      <p class="eyebrow" data-fr="Formation académique" data-en="Academic background">
-        Formation académique
-      </p>
-      <h2 class="section-title" data-fr="Formation" data-en="Education">Formation</h2>
-
-      <div class="timeline">
-
-        <div class="tl-item current">
-          <span class="when">Septembre 2025 – Aujourd'hui · Université Paris Cité</span>
-          <h3 data-fr="Master 2 — Ingénierie Mathématique et Biostatistiques"
-              data-en="Master's — Mathematical Engineering and Biostatistics">
-            Master 2 — Ingénierie Mathématique et Biostatistiques
-          </h3>
-          <p data-fr="Formation en algorithmes stochastiques, machine learning, deep learning, analyse de survie, statistique non paramétrique, modèles différentiels et données, théorie des jeux et Python."
-             data-en="Training in stochastic algorithms, machine learning, deep learning, survival analysis, nonparametric statistics, differential models and data, game theory and Python.">
-            Formation en algorithmes stochastiques, machine learning, deep learning, analyse de survie, statistique non paramétrique, modèles différentiels et données, théorie des jeux et Python.
-          </p>
-        </div>
-
-        <div class="tl-item">
-          <span class="when">Octobre 2023 – Août 2025 · IMSP–UAC · Bénin</span>
-          <h3 data-fr="Master 1 & 2 — Probabilités et Statistique"
-              data-en="Master's — Probability and Statistics">
-            Master 1 & 2 — Probabilités et Statistique
-          </h3>
-          <p data-fr="Formation en séries temporelles, analyse de données, calcul stochastique et programmation R. Mémoire : régression non paramétrique à seuils multiples."
-             data-en="Training in time series, data analysis, stochastic calculus and R programming. Master's thesis: nonparametric regression with multiple thresholds.">
-            Formation en séries temporelles, analyse de données, calcul stochastique et programmation R. Mémoire : régression non paramétrique à seuils multiples.
-          </p>
-        </div>
-
-        <div class="tl-item">
-          <span class="when">Octobre 2019 – Août 2022 · FAST–UNSTIM · Bénin</span>
-          <h3 data-fr="Licence — Mathématiques et Informatique"
-              data-en="Bachelor's — Mathematics and Computer Science">
-            Licence — Mathématiques et Informatique
-          </h3>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- =========================
-         SKILLS
-    ========================== -->
-    <section id="competences" class="wrap">
-      <p class="eyebrow" data-fr="Boîte à outils" data-en="Toolbox">Boîte à outils</p>
-      <h2 class="section-title" data-fr="Compétences" data-en="Skills">Compétences</h2>
-
-      <div class="two-col">
-
-        <div class="card">
-          <h3 data-fr="Programmation & calcul scientifique"
-              data-en="Programming & scientific computing">
-            Programmation & calcul scientifique
-          </h3>
-
-          <div class="tag-row tag-row-blue">
-            <span class="tag">R</span>
-            <span class="tag">Python</span>
-            <span class="tag">Julia</span>
-            <span class="tag">SAS</span>
-            <span class="tag">Git</span>
-            <span class="tag">LaTeX / Beamer</span>
-          </div>
-
-        <div class="card">
-          <h3 data-fr="Statistique & machine learning"
-              data-en="Statistics & machine learning">
-            Statistique & machine learning
-          </h3>
-
-          <div class="tag-row tag-row-green">
-            <span class="tag">Probabilités</span>
-            <span class="tag">Séries temporelles</span>
-            <span class="tag">Statistique non paramétrique</span>
-            <span class="tag">Machine Learning</span>
-            <span class="tag">Deep Learning</span>
-            <span class="tag">Analyse de survie</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3 data-fr="Bibliothèques & outils"
-              data-en="Libraries & tools">
-            Bibliothèques & outils
-          </h3>
-
-          <div class="tag-row tag-row-orange">
-            <span class="tag">NumPy</span>
-            <span class="tag">Pandas</span>
-            <span class="tag">Scikit-learn</span>
-            <span class="tag">Keras</span>
-            <span class="tag">TensorFlow</span>
-            <span class="tag">FactoMineR</span>
-            <span class="tag">factoextra</span>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3 data-fr="Langues"
-              data-en="Languages">
-            Langues
-          </h3>
-
-          <div class="lang-row">
-            <span data-fr="Français" data-en="French">Français</span>
-            <span class="level"
-                  data-fr="Langue maternelle"
-                  data-en="Native">
-              Langue maternelle
-            </span>
-          </div>
-
-          <div class="lang-row">
-            <span data-fr="Anglais" data-en="English">Anglais</span>
-            <span class="level"
-                  data-fr="Niveau intermédiaire"
-                  data-en="Intermediate">
-              Niveau intermédiaire
-            </span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- =========================
-         TEACHING / OUTREACH
-    ========================== -->
-    <section id="enseignement" class="wrap">
-      <p class="eyebrow" data-fr="Transmission" data-en="Teaching & outreach">
-        Transmission
-      </p>
-      <h2 class="section-title" data-fr="Enseignement & vulgarisation"
-          data-en="Teaching & outreach">
-        Enseignement & vulgarisation
-      </h2>
-
-      <div class="card-grid">
-
-        <article class="card">
-          <span class="when">2023 – 2024</span>
-          <h3 data-fr="Enseignement des mathématiques"
-              data-en="Mathematics teaching">
-            Enseignement des mathématiques
-          </h3>
-
-          <p data-fr="Cours de soutien et accompagnement d'élèves du collège et du lycée, avec un objectif de consolidation des bases et de progression en mathématiques."
-             data-en="Tutoring and support for middle- and high-school students, focusing on strengthening fundamentals and improving mathematical skills.">
-            Cours de soutien et accompagnement d'élèves du collège et du lycée, avec un objectif de consolidation des bases et de progression en mathématiques.
-          </p>
-        </article>
-
-        <article class="card">
-          <span class="when">Vulgarisation scientifique</span>
-          <h3 data-fr="Partager les mathématiques et la statistique"
-              data-en="Sharing mathematics and statistics">
-            Partager les mathématiques et la statistique
-          </h3>
-
-          <p data-fr="Création de contenus pédagogiques autour de Gauss, des modèles de volatilité, des valeurs extrêmes, de l'ACP, de la loi Gamma, de la régression linéaire et de Julia."
-             data-en="Educational content on Gauss, volatility models, extreme value theory, PCA, the Gamma distribution, linear regression and Julia.">
-            Création de contenus pédagogiques autour de Gauss, des modèles de volatilité, des valeurs extrêmes, de l'ACP, de la loi Gamma, de la régression linéaire et de Julia.
-          </p>
-        </article>
-
       </div>
     </section>
 
     <!-- =========================
          CONTACT
     ========================== -->
-    <section id="contact" class="wrap">
-      <p class="eyebrow" data-fr="Me contacter" data-en="Get in touch">Me contacter</p>
-      <h2 class="section-title" data-fr="À propos & contact"
-          data-en="About & contact">
-        À propos & contact
-      </h2>
-
-      <div class="contact-grid">
-        <div>
-          <p data-fr="Je m'intéresse aux collaborations autour de la statistique, des processus stochastiques, de la fiabilité, de la modélisation de la dégradation et de l'analyse de données."
-             data-en="I am interested in collaborations involving statistics, stochastic processes, reliability, degradation modelling and data analysis.">
-            Je m'intéresse aux collaborations autour de la statistique, des processus stochastiques, de la fiabilité, de la modélisation de la dégradation et de l'analyse de données.
-          </p>
-
-          <div class="cta-row">
-            <a class="btn btn-primary" href="mailto:artito@univ-pau.fr"
-               data-fr="Me contacter"
-               data-en="Contact me">
-              Me contacter
-            </a>
-
-            <a class="btn btn-ghost"
-               href="https://www.linkedin.com/in/tito-rytrace"
-               target="_blank"
-               rel="noopener noreferrer">
-              LinkedIn
-            </a>
-
-            <a class="btn btn-ghost" href="cv.pdf"
-               data-fr="CV PDF"
-               data-en="PDF CV">
-              CV PDF
-            </a>
-          </div>
-        </div>
-
-        <div>
-          <div class="contact-row">
-            <span class="label">E-mail</span>
-            <a href="mailto:artito@univ-pau.fr">artito@univ-pau.fr</a>
+    <section id="contact">
+      <div class="wrap">
+        <div class="contact-card">
+          <div>
+            <p class="eyebrow"><span class="num">08</span> <span data-en="Get in touch">Me contacter</span></p>
+            <h2 class="section-title" data-en-html="Let's talk <em>reliability</em>">Parlons <em>fiabilité</em></h2>
+            <p class="contact-lede" data-en="I am open to collaborations on statistics, stochastic processes, reliability, degradation modelling and data analysis. Also happy to talk football.">
+              Je suis ouvert aux collaborations autour de la statistique, des processus stochastiques, de la fiabilité, de la modélisation de la dégradation et de l'analyse de données. Et toujours partant pour parler football.
+            </p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="mailto:artito@univ-pau.fr">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 5h18v14H3z"/><path d="M3 6l9 7 9-7"/></svg>
+                <span data-en="Write to me">M'écrire</span>
+              </a>
+              <button type="button" class="btn btn-ghost copy-email" data-email="artito@univ-pau.fr">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 012-2h9"/></svg>
+                <span data-en="Copy address">Copier l'adresse</span>
+              </button>
+            </div>
           </div>
 
-          <div class="contact-row">
-            <span class="label"
-                  data-fr="Institution"
-                  data-en="Institution">
-              Institution
-            </span>
-            Université de Pau et des Pays de l'Adour · LMAP
-          </div>
-
-          <div class="contact-row">
-            <span class="label"
-                  data-fr="Localisation"
-                  data-en="Location">
-              Localisation
-            </span>
-            Pau, France
-          </div>
+          <dl class="contact-list">
+            <div><dt>E-mail</dt><dd><a href="mailto:artito@univ-pau.fr">artito@univ-pau.fr</a></dd></div>
+            <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/tito-rytrace" target="_blank" rel="noopener noreferrer">in/tito-rytrace</a></dd></div>
+            <div><dt>GitHub</dt><dd><a href="https://github.com/rytracetito" target="_blank" rel="noopener noreferrer">@rytracetito</a></dd></div>
+            <div><dt data-en="Institution">Institution</dt><dd data-en="University of Pau and the Adour Region · LMAP">Université de Pau et des Pays de l'Adour · LMAP</dd></div>
+            <div><dt data-en="Location">Localisation</dt><dd>Pau, France</dd></div>
+          </dl>
         </div>
       </div>
     </section>
 
   </main>
 
-  <footer>
-    © <span id="year"></span> TITO Amedée Rytrace
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <span>© <span id="year">2026</span> TITO Amedée Rytrace</span>
+      <span class="footer-note" data-en="Hand-coded in HTML, CSS &amp; JavaScript · Hosted on GitHub Pages">Codé à la main en HTML, CSS &amp; JavaScript · Hébergé sur GitHub Pages</span>
+    </div>
   </footer>
 
-  <script src="script.js"></script>
+  <button type="button" class="to-top" aria-label="Revenir en haut" data-en-aria="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+  <div class="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js" defer></script>
+  <script src="lab.js" defer></script>
 </body>
 </html>
