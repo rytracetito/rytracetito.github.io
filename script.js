@@ -24,8 +24,8 @@
 
   var TEXTS = {
     fr: {
-      title: 'TITO Amedée Rytrace — Statistique, processus stochastiques & fiabilité',
-      description: "TITO Amedée Rytrace — doctorant au LMAP (Université de Pau et des Pays de l'Adour) : tests d'adéquation pour les processus de dégradation Gamma et Wiener, avec ou sans maintenance imparfaite.",
+      title: 'TITO Amedée Rytrace | Statistique, processus stochastiques & fiabilité',
+      description: "TITO Amedée Rytrace | doctorant au LMAP (Université de Pau et des Pays de l'Adour) : tests d'adéquation pour les processus de dégradation Gamma et Wiener, avec ou sans maintenance imparfaite.",
       copied: 'Adresse copiée dans le presse-papiers',
       copyFailed: 'Copie impossible : ',
       menuOpen: 'Ouvrir le menu',
@@ -39,8 +39,8 @@
       ]
     },
     en: {
-      title: 'TITO Amedée Rytrace — Statistics, stochastic processes & reliability',
-      description: 'TITO Amedée Rytrace — PhD candidate at LMAP (University of Pau): goodness-of-fit tests for Gamma and Wiener degradation processes, with or without imperfect maintenance.',
+      title: 'TITO Amedée Rytrace | Statistics, stochastic processes & reliability',
+      description: 'TITO Amedée Rytrace | PhD candidate at LMAP (University of Pau): goodness-of-fit tests for Gamma and Wiener degradation processes, with or without imperfect maintenance.',
       copied: 'Address copied to clipboard',
       copyFailed: 'Could not copy: ',
       menuOpen: 'Open menu',

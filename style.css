@@ -211,7 +211,6 @@ main > section + section::before{
   color: var(--accent2); margin: 0 0 14px;
 }
 .eyebrow .num{ color: var(--ink-faint); }
-.eyebrow .num::after{ content: ''; display: inline-block; width: 24px; height: 1px; background: currentColor; vertical-align: middle; margin-left: 10px; }
 h2.section-title{
   font-family: var(--font-display); font-weight: 700; font-size: clamp(30px, 4.2vw, 46px);
   line-height: 1.08; letter-spacing: -.02em; margin: 0; color: var(--ink);
