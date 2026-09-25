@@ -235,12 +235,12 @@ h2.section-title em{
 .hero-grid{ display: grid; grid-template-columns: 1.1fr .9fr; gap: 48px; align-items: center; }
 
 .badge{
-  display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 12px;
+  display: inline-flex; align-items: flex-start; gap: 10px; font-family: var(--font-mono); font-size: 12px; line-height: 1.6;
   color: var(--ink-soft); border: 1px solid var(--rule); background: var(--card);
-  padding: 7px 14px; border-radius: 999px; margin-bottom: 26px;
+  padding: 8px 16px; border-radius: 14px; margin-bottom: 26px; max-width: 72ch;
   backdrop-filter: blur(6px);
 }
-.badge .dot{ width: 7px; height: 7px; border-radius: 50%; background: var(--green); animation: dot-pulse 1.8s ease-in-out infinite; }
+.badge .dot{ flex: none; width: 7px; height: 7px; margin-top: .6em; border-radius: 50%; background: var(--green); animation: dot-pulse 1.8s ease-in-out infinite; }
 @keyframes dot-pulse{
   0%{ box-shadow: 0 0 0 0 rgba(52,211,153,.55); }
   70%{ box-shadow: 0 0 0 7px rgba(52,211,153,0); }
