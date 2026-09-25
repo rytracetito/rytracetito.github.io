@@ -1,5 +1,5 @@
 /* =========================================================
-   TITO Amedée Rytrace — interactions du site
+   TITO Amedée Rytrace, interactions du site
    Langue, thème, menu mobile, défilement, animations,
    copie de l'e-mail et fond animé du hero.
 ========================================================= */
@@ -202,7 +202,7 @@
   }
 
   /* =========================================
-     SCROLL SPY — surligne la section active
+     SCROLL SPY, surligne la section active
   ========================================= */
 
   function initScrollSpy() {

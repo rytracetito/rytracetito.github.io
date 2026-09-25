@@ -1,5 +1,5 @@
 /* =========================================================
-   Laboratoire interactif — simulation de processus de
+   Laboratoire interactif, simulation de processus de
    dégradation (Gamma ou Wiener), seuil de défaillance L
    et maintenance imparfaite de type ARD1.
 
@@ -53,7 +53,7 @@
     var u = 1 - rand(), v = rand();
     return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
   }
-  // Loi Gamma(k, 1) — méthode de Marsaglia & Tsang (avec « boost » si k < 1)
+  // Loi Gamma(k, 1), méthode de Marsaglia & Tsang (avec « boost » si k < 1)
   function rgamma(k) {
     if (k < 1) {
       var u0 = rand();
