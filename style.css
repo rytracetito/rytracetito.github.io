@@ -97,6 +97,14 @@ button{ font: inherit; }
 
 em{ font-family: var(--font-serif); font-style: italic; font-weight: 400; }
 
+/* Liens vers les établissements (UPPA, LMAP, Université Paris Cité) */
+a.org{
+  color: inherit; text-decoration: underline dotted; text-decoration-thickness: 1px; text-underline-offset: 3px;
+  text-decoration-color: color-mix(in srgb, currentColor 45%, transparent);
+  transition: color .2s ease, text-decoration-color .2s ease;
+}
+a.org:hover, a.org:focus-visible{ color: var(--accent2); text-decoration-style: solid; text-decoration-color: currentColor; }
+
 /* ---------- 3. Fond & barre latérale ---------- */
 .progress{ position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 60; pointer-events: none; }
 .progress span{ display: block; height: 100%; width: 100%; background: var(--grad); transform-origin: 0 50%; transform: scaleX(0); }
