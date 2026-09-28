@@ -14,15 +14,17 @@
   --surface: #121723;
   --ink: #eef0f5;
   --ink-soft: #a1a7b3;
-  --ink-faint: #6b7280;
+  --ink-faint: #858c99;
   --rule: rgba(255,255,255,.08);
   --card: rgba(255,255,255,.032);
   --card-hover: rgba(255,255,255,.055);
   --badge: #131722;
 
   --accent1: #8b5cf6;
+  --accent1-text: #a78bfa;
   --accent2: #22d3ee;
   --accent3: #ec4899;
+  --accent3-text: #ec4899;
   --green: #34d399;
   --amber: #fbbf24;
   --blue: #5b9bff;
@@ -47,15 +49,17 @@ html[data-theme="light"]{
   --surface: #ffffff;
   --ink: #141620;
   --ink-soft: #545a67;
-  --ink-faint: #8a8f99;
+  --ink-faint: #6b7079;
   --rule: rgba(20,22,32,.1);
   --card: rgba(255,255,255,.72);
   --card-hover: #ffffff;
   --badge: #ffffff;
 
   --accent1: #7c3aed;
+  --accent1-text: #7c3aed;
   --accent2: #0e7490;
   --accent3: #db2777;
+  --accent3-text: #be185d;
   --green: #047857;
   --amber: #b45309;
   --blue: #1d4ed8;
@@ -183,7 +187,7 @@ nav.seclinks > a.active{ color: var(--ink); background: color-mix(in srgb, var(-
   transition: background .2s ease, color .2s ease;
 }
 .lang-toggle button:hover{ color: var(--ink); }
-.lang-toggle button.active{ background: var(--accent1); color: #fff; }
+.lang-toggle button.active{ background: #7c3aed; color: #fff; }
 
 .icon-btn{
   width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--rule); background: none;
@@ -408,13 +412,13 @@ p.lede{ font-size: 16.5px; color: var(--ink-soft); max-width: 56ch; margin: 0 0 
 .tag:hover{ transform: translateY(-1px); }
 .tag-row .tag:nth-child(4n+1){ color: var(--accent2); border-color: color-mix(in srgb, var(--accent2) 38%, var(--rule)); }
 .tag-row .tag:nth-child(4n+2){ color: var(--green);   border-color: color-mix(in srgb, var(--green) 38%, var(--rule)); }
-.tag-row .tag:nth-child(4n+3){ color: var(--accent1); border-color: color-mix(in srgb, var(--accent1) 38%, var(--rule)); }
+.tag-row .tag:nth-child(4n+3){ color: var(--accent1-text); border-color: color-mix(in srgb, var(--accent1) 38%, var(--rule)); }
 .tag-row .tag:nth-child(4n)  { color: var(--amber);   border-color: color-mix(in srgb, var(--amber) 38%, var(--rule)); }
 .tag-row-blue .tag.tag{ color: var(--blue); border-color: color-mix(in srgb, var(--blue) 38%, var(--rule)); }
 .tag-row-green .tag.tag{ color: var(--green); border-color: color-mix(in srgb, var(--green) 38%, var(--rule)); }
 .tag-row-orange .tag.tag{ color: var(--orange); border-color: color-mix(in srgb, var(--orange) 38%, var(--rule)); }
-.tag-row-purple .tag.tag{ color: var(--accent1); border-color: color-mix(in srgb, var(--accent1) 38%, var(--rule)); }
-.tag-row-pink .tag.tag{ color: var(--accent3); border-color: color-mix(in srgb, var(--accent3) 38%, var(--rule)); }
+.tag-row-purple .tag.tag{ color: var(--accent1-text); border-color: color-mix(in srgb, var(--accent1) 38%, var(--rule)); }
+.tag-row-pink .tag.tag{ color: var(--accent3-text); border-color: color-mix(in srgb, var(--accent3) 38%, var(--rule)); }
 
 .placeholder{ color: var(--orange); font-style: italic; background: color-mix(in srgb, var(--orange) 10%, transparent); border-radius: 4px; padding: 0 4px; }
 
