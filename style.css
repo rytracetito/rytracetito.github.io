@@ -327,7 +327,7 @@ p.lede{ font-size: 16.5px; color: var(--ink-soft); max-width: 56ch; margin: 0 0 
 .ring-dot{
   position: absolute; inset: 0; width: 12px; height: 12px; margin: auto; border-radius: 50%;
   box-shadow: 0 0 10px currentColor, 0 0 22px currentColor;
-  offset-path: circle(50% at 50% 50%); animation: ring-travel 16s linear infinite; z-index: 4;
+  offset-path: circle(50% at 50% 50%); animation: ring-travel 30s linear infinite; z-index: 4;
 }
 @keyframes ring-travel{
   0%{ offset-distance: 0%; background: #8b5cf6; color: #8b5cf6; }
