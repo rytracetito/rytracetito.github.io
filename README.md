@@ -1,6 +1,6 @@
 # rytracetito.github.io
 
-Site personnel de **TITO Amedée Rytrace** : statistique, processus stochastiques et fiabilité.
+Site personnel de **TITO Rytrace** : statistique, processus stochastiques et fiabilité.
 En ligne sur <https://rytracetito.github.io>.
 
 Site statique (HTML, CSS, JavaScript), sans framework ni étape de compilation, hébergé par GitHub Pages.

@@ -1,5 +1,5 @@
 /* =========================================================
-   TITO Amedée Rytrace, interactions du site
+   TITO Rytrace, interactions du site
    Langue, thème, menu mobile, défilement, animations,
    copie de l'e-mail et fond animé du hero.
 ========================================================= */
@@ -24,8 +24,8 @@
 
   var TEXTS = {
     fr: {
-      title: 'TITO Amedée Rytrace | Statistique, processus stochastiques & fiabilité',
-      description: "TITO Amedée Rytrace | doctorant au LMAP (Université de Pau et des Pays de l'Adour) : tests d'adéquation pour les processus de dégradation Gamma et Wiener, avec ou sans maintenance imparfaite.",
+      title: 'TITO Rytrace | Statistique, processus stochastiques & fiabilité',
+      description: "TITO Rytrace (Amedée Rytrace TITO), doctorant au LMAP (Université de Pau) : tests d'adéquation pour les processus de dégradation et maintenance imparfaite.",
       copied: 'Adresse copiée dans le presse-papiers',
       copyFailed: 'Copie impossible : ',
       menuOpen: 'Ouvrir le menu',
@@ -39,8 +39,8 @@
       ]
     },
     en: {
-      title: 'TITO Amedée Rytrace | Statistics, stochastic processes & reliability',
-      description: 'TITO Amedée Rytrace | PhD candidate at LMAP (University of Pau): goodness-of-fit tests for Gamma and Wiener degradation processes, with or without imperfect maintenance.',
+      title: 'TITO Rytrace | Statistics, stochastic processes & reliability',
+      description: 'TITO Rytrace (Amedée Rytrace TITO), PhD candidate at LMAP (University of Pau): goodness-of-fit tests for degradation processes and imperfect maintenance.',
       copied: 'Address copied to clipboard',
       copyFailed: 'Could not copy: ',
       menuOpen: 'Open menu',
