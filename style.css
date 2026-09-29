@@ -305,8 +305,10 @@ p.lede{ font-size: 16.5px; color: var(--ink-soft); max-width: 56ch; margin: 0 0 
 
 /* Orbite */
 .orbit-wrap{ position: relative; width: min(480px, 100%); aspect-ratio: 1; margin: 0 auto; }
-.orbit-ring{ position: absolute; inset: 8.3%; border: 1px dashed var(--rule); border-radius: 50%; animation: spin 80s linear infinite; }
-@keyframes spin{ to{ transform: rotate(360deg); } }
+.orbit-ring{ position: absolute; border: 1px solid color-mix(in srgb, var(--ink) 16%, transparent); border-radius: 50%; pointer-events: none; }
+.orbit-ring.r1{ inset: 18.5%; }
+.orbit-ring.r2{ inset: 8.33%; }
+.orbit-ring.r3{ inset: .5%; }
 .avatar-ring{
   position: absolute; inset: 21.25%; border-radius: 50%; padding: 5px;
   background: conic-gradient(from 0deg, #8b5cf6, #ec4899, #22d3ee, #8b5cf6);
@@ -325,7 +327,7 @@ p.lede{ font-size: 16.5px; color: var(--ink-soft); max-width: 56ch; margin: 0 0 
 .ring-dot{
   position: absolute; inset: 0; width: 12px; height: 12px; margin: auto; border-radius: 50%;
   box-shadow: 0 0 10px currentColor, 0 0 22px currentColor;
-  offset-path: circle(50% at 50% 50%); animation: ring-travel 6s linear infinite; z-index: 6;
+  offset-path: circle(50% at 50% 50%); animation: ring-travel 16s linear infinite; z-index: 4;
 }
 @keyframes ring-travel{
   0%{ offset-distance: 0%; background: #8b5cf6; color: #8b5cf6; }
