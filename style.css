@@ -262,6 +262,7 @@ h2.section-title em{
 h1.name{
   font-family: var(--font-display); font-weight: 700; font-size: clamp(42px, 6vw, 76px);
   line-height: 1; letter-spacing: -.035em; margin: 0 0 20px; color: var(--ink);
+  white-space: nowrap;
 }
 .name-last{
   font-family: var(--font-serif); font-style: italic; font-weight: 400; letter-spacing: -.01em; font-size: 1.12em;
