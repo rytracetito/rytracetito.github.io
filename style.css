@@ -305,10 +305,10 @@ p.lede{ font-size: 16.5px; color: var(--ink-soft); max-width: 56ch; margin: 0 0 
 
 /* Orbite */
 .orbit-wrap{ position: relative; width: min(480px, 100%); aspect-ratio: 1; margin: 0 auto; }
-.orbit-ring{ position: absolute; border: 1px solid color-mix(in srgb, var(--ink) 16%, transparent); border-radius: 50%; pointer-events: none; }
-.orbit-ring.r1{ inset: 18.5%; }
-.orbit-ring.r2{ inset: 8.33%; }
-.orbit-ring.r3{ inset: .5%; }
+.orbit-ring{ position: absolute; border: 1px solid; border-radius: 50%; pointer-events: none; }
+.orbit-ring.r1{ inset: 18.5%; border-color: color-mix(in srgb, #8b5cf6 45%, transparent); }
+.orbit-ring.r2{ inset: 8.33%; border-color: color-mix(in srgb, #ec4899 40%, transparent); }
+.orbit-ring.r3{ inset: .5%;   border-color: color-mix(in srgb, #22d3ee 35%, transparent); }
 .avatar-ring{
   position: absolute; inset: 21.25%; border-radius: 50%; padding: 5px;
   background: conic-gradient(from 0deg, #8b5cf6, #ec4899, #22d3ee, #8b5cf6);
