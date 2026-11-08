@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rytracetito.github.io/sitemap.xml
